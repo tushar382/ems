@@ -72,7 +72,7 @@ signupForm.addEventListener('submit',(e) => {
 
 //logout
 const logout = document.querySelector('#logout');
-logout.addEventListener('click',(e) =>{
+logout.addEventListener.on('click',(e) =>{
     e.preventDefault();
     auth.signOut()
 });
