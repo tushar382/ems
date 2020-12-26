@@ -3,43 +3,71 @@
 
 <head>
     <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-     <!--Import Google Icon Font-->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Admin Register / login </title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"></link>
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    </link>
+
 </head>
 
 <body class="grey lighten-3">
     <!-- NAVBAR -->
     <div class="navbar-fixed">
-        <nav class="nav-wrapper indigo">
-          <div class="container">
-            <a href="#" class="brand-logo">Site Title</a>
-            <a href="#" class="sidenav-trigger" data-target="mobile-links">
-              <i class="material-icons">menu</i>
-            </a>
-            <ul class="right hide-on-med-and-down">
-              <li><a href="">Home</a></li>
-              <li><a href="">About</a></li>
-              <li><a href="">Contact</a></li>
-              <li><a href="" class="btn white indigo-text">Login</a></li>
-            </ul>
-          </div>
+        <nav class="nav-wrapper grey darken-2">
+            <div class="container">
+                <a href="#" class="brand-logo">
+                    <img src="img/logo.svg" style="width: 180px; margin-top: 10px;">
+                </a>
+                <a href="#" class="sidenav-trigger" data-target="mobile-links">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul class="right hide-on-med-and-down">
+                    <li class="logged-in" style="display: none;">
+                        <a href="#" class="white-text modal-trigger" data-target="modal-account">Account</a>
+                    </li>
+                    <li class="logged-in" style="display: none;">
+                        <a href="#" class="white-text" id="logout">Logout</a>
+                    </li>
+                    <li class="admin" style="display: none;">
+                        <a href="#" class="white-text modal-trigger" data-target="modal-create">Create Event</a>
+                    </li>
+                    <li class="logged-out" style="display: none;">
+                        <a href="#" class="white-text modal-trigger" data-target="modal-login">Login</a>
+                    </li>
+                    <li class="logged-out" style="display: none;">
+                        <a href="#" class="white-text modal-trigger" data-target="modal-signup">Sign up</a>
+                    </li>
+                    </span>
+                </ul>
+            </div>
         </nav>
-      </div>
-    
-      <ul class="sidenav" id="mobile-links">
-        <li><a href="">Home</a></li>
-        <li><a href="">About</a></li>
-        <li><a href="">Contact</a></li>
-      </ul>
+    </div>
+
+    <ul class="sidenav grey darken-3" id="mobile-links">
+        <li class="logged-in" style="display: none;">
+            <a href="#" class="white-text modal-trigger" data-target="modal-account">Account</a>
+        </li>
+        <li class="logged-in" style="display: none;">
+            <a href="#" class="white-text" id="logout">Logout</a>
+        </li>
+        <li class="admin" style="display: none;">
+            <a href="#" class="white-text modal-trigger" data-target="modal-create">Create Event</a>
+        </li>
+        <li class="logged-out" style="display: none;">
+            <a href="#" class="white-text modal-trigger" data-target="modal-login">Login</a>
+        </li>
+        <li class="logged-out" style="display: none;">
+            <a href="#" class="white-text modal-trigger" data-target="modal-signup">Sign up</a>
+        </li>
+        </span>
+    </ul>
 
     <!--ADMIN ACTIONS-->
     <form class="center-align admin-actions admin" style="margin: 40px auto; max-width: 300px; display: none;">
-        <input type="email" placeholder="User email" id="admin-email" required/>
+        <input type="email" placeholder="User email" id="admin-email" required />
         <button class="btn-small yellow darken-2 z-depth-0">Make admin</button>
     </form>
 
@@ -117,11 +145,7 @@
     </div>
 
 
-    <script>
-        $(document).ready(function(){
-          $('.sidenav').sidenav();
-        });
-      </script>
+
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
@@ -151,12 +175,18 @@
         const db = firebase.firestore();
         const functions = firebase.functions();
         //update firestore settings
-        db.settings({timestampsInSanpshots:true});
+        db.settings({ timestampsInSanpshots: true });
     </script>
 
     <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+        });
+    </script>
     <script src="scripts/auth.js"></script>
     <script src="scripts/index.js"></script>
 </body>
