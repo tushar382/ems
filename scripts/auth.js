@@ -70,13 +70,22 @@ signupForm.addEventListener('submit',(e) => {
     });
 });
 
-//logout
+// logoutDesktop
 const logout = document.querySelector('#logout');
-logout.addEventListener('click',(e) =>  {
-    e.preventDefault();
-    auth.signOut()
-    console.log("user logged out");
+logout.addEventListener('click', (e) => {
+  e.preventDefault();
+  auth.signOut();
+  
 });
+
+// logoutMobile
+const logoutMobile = document.querySelector('#logout-mobile');
+logoutMobile.addEventListener('click', (e) => {
+  e.preventDefault();
+  auth.signOut();
+
+});
+
 
 //login
 const loginForm = document.querySelector('#login-form');
