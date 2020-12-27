@@ -35,6 +35,7 @@ createForm.addEventListener('submit', (e) => {
 
     db.collection('events').add({
         title: createForm['title'].value,
+        desc: createForm['desc'].value,
         content: createForm['content'].value
     }).then(() =>{
         //close the modal and reset form

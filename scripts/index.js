@@ -38,11 +38,13 @@ const setupEvents = (data) => {
     data.forEach(doc => {
         const event = doc.data();
         const li = `
+        </br>
         <li>
             <div class="collapsible-header grey lighten-4">${event.title}</div>
             <div class="collapsible-body white">${event.content}</div>
+            <div class="collapsible-body white">${event.desc}</div>
         </li>
-        
+        </hr>
         `;
         html += li;
     });
