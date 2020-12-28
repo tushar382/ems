@@ -29,17 +29,20 @@
                     <li class="logged-in" style="display: none;">
                         <a href="#" class="white-text modal-trigger" data-target="modal-account">Account</a>
                     </li>
-                    <li class="logged-in" style="display: none;">
-                        <a href="#" class="white-text" id="logout">Logout</a>
-                    </li>
                     <li class="admin" style="display: none;">
                         <a href="#" class="white-text modal-trigger" data-target="modal-create">Create Event</a>
+                    </li>
+                    <li class="admin" style="display: none;">
+                        <a href="#" class="white-text modal-trigger" data-target="modal-manage">Manage Event</a>
                     </li>
                     <li class="logged-out" style="display: none;">
                         <a href="#" class="white-text modal-trigger" data-target="modal-login">Login</a>
                     </li>
                     <li class="logged-out" style="display: none;">
                         <a href="#" class="white-text modal-trigger" data-target="modal-signup">Sign up</a>
+                    </li>
+                    <li class="logged-in" style="display: none;">
+                        <a href="#" class="white-text" id="logout">Logout</a>
                     </li>
                     </span>
                 </ul>
@@ -51,11 +54,11 @@
         <li class="logged-in" style="display: none;">
             <a href="#" class="white-text modal-trigger" data-target="modal-account">Account</a>
         </li>
-        <li class="logged-in" style="display: none;">
-            <a href="#" class="white-text" id="logout-mobile">Logout</a>
-          </li>
         <li class="admin" style="display: none;">
             <a href="#" class="white-text modal-trigger" data-target="modal-create">Create Event</a>
+        </li>
+        <li class="admin" style="display: none;">
+            <a href="#" class="white-text modal-trigger" data-target="modal-manage">Manage Event</a>
         </li>
         <li class="logged-out" style="display: none;">
             <a href="#" class="white-text modal-trigger" data-target="modal-login">Login</a>
@@ -63,6 +66,9 @@
         <li class="logged-out" style="display: none;">
             <a href="#" class="white-text modal-trigger" data-target="modal-signup">Sign up</a>
         </li>
+        <li class="logged-in" style="display: none;">
+            <a href="#" class="white-text" id="logout-mobile">Logout</a>
+          </li>
         </span>
     </ul>
 
@@ -142,10 +148,26 @@
                     <label for="title">Description</label>
                 </div>
                 <div class="input-field">
-                    <i class="material-icons prefix">description</i>
-                    <textarea id="content" class="materialize-textarea" required></textarea>
-                    <label for="content">Event Content</label>
+                    <i class="material-icons prefix">bookmark</i>
+                    <input type="text" id="eligibilty" required>
+                    <label for="title">Eligibilty</label>
                 </div>
+                <div class="input-field">
+                    <i class="material-icons prefix">schedule</i>
+                    <input type="text" id="schedule" required>
+                    <label for="title">Schedule</label>
+                </div>
+                <div class="input-field">
+                    <i class="material-icons prefix">location_on</i>
+                    <input type="text" id="location" required>
+                    <label for="title">Location</label>
+                </div>
+                <div class="input-field">
+                    <i class="material-icons prefix">attach_money</i>
+                    <input type="text" id="payment" required>
+                    <label for="title">Payment</label>
+                </div>
+                
                 <button class="btn yellow darken-2 z-depth-0">Create</button>
             </form>
         </div>

@@ -36,7 +36,10 @@ createForm.addEventListener('submit', (e) => {
     db.collection('events').add({
         title: createForm['title'].value,
         desc: createForm['desc'].value,
-        content: createForm['content'].value
+        eligibility: createForm['eligibilty'].value,
+        schedule: createForm['schedule'].value,
+        location: createForm['location'].value,
+        payment: createForm['payment'].value
     }).then(() =>{
         //close the modal and reset form
         const modal = document.querySelector('#modal-create');
@@ -46,6 +49,9 @@ createForm.addEventListener('submit', (e) => {
         console.log(err.message);
     })
 })
+
+//deleting event
+
 
 //signup
 const signupForm = document.querySelector('#signup-form');
