@@ -18,6 +18,7 @@ auth.onAuthStateChanged(user =>{
         //get data
         db.collection('events').onSnapshot(snapshot => {
             setupEvents(snapshot.docs);
+            manageEvents(snapshot.docs);
             setupUI(user);
         }, err => {
             console.log(err.message);
@@ -25,6 +26,7 @@ auth.onAuthStateChanged(user =>{
     }else{
         setupUI();
         setupEvents([]);
+        manageEvents([]);
     }
 });
 
@@ -50,7 +52,12 @@ createForm.addEventListener('submit', (e) => {
     })
 })
 
-//deleting event
+//manage event
+const manageEvent = document.querySelector('#modal-manage');
+manageEvent.addEventListener('click',(e) => {
+    e.preventDefault();
+    console.log("ManageEvent");
+});
 
 
 //signup

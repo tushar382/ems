@@ -1,4 +1,6 @@
 const eventList = document.querySelector('.events');
+const searchBar = document.querySelector('#searchBar');
+const manageEventList = document.querySelector('.manage-events');
 const loggedOutLinks = document.querySelectorAll('.logged-out');
 const loggedInLinks = document.querySelectorAll('.logged-in');
 const accountDetails = document.querySelector('.account-details');
@@ -31,6 +33,40 @@ const setupUI = (user) => {
         loggedOutLinks.forEach(item => item.style.display = 'block');
     }
 }
+//setup the manage-events list
+const manageEvents = (data) => {
+
+    if (data.length) {
+        
+        let html = "";
+        data.forEach(doc => {
+            const mevent = doc.data();
+            
+            const li = `
+            </br>
+        <li>
+            <div id="div1" class="collapsible-header grey lighten-4">${mevent.title}</div>
+            
+        </li>
+        </hr> `
+       ;
+        
+            
+
+            html += li;  
+            
+        });
+        
+        
+        
+        
+        manageEventList.innerHTML = html;
+    }
+   
+
+
+
+}
 //setup the events
 const setupEvents = (data) => {
 
@@ -39,6 +75,7 @@ const setupEvents = (data) => {
         let html = "";
         data.forEach(doc => {
             const event = doc.data();
+
             const li = `
         </br>
         <li>
@@ -48,14 +85,20 @@ const setupEvents = (data) => {
             <p>Schedule</p>${event.schedule}</br><hr>
             <p>Location</p>${event.location}</br><hr>
             <p>Payment</p>${event.payment}</div>
-             
+            
+            
         </li>
         
         </hr>
+        
+        
         `;
+       
             html += li;
+            
+            
         });
-
+        
         eventList.innerHTML = html;
     }
     else {
@@ -63,7 +106,6 @@ const setupEvents = (data) => {
     }
 
 }
- //Deleting events
 
 
 
@@ -80,3 +122,28 @@ document.addEventListener('DOMContentLoaded', function () {
     M.Collapsible.init(items);
 
 });
+
+
+ // Deleting events
+            // window.onload=function(){
+            //     deleteEvent = document.querySelector('#delete');
+            //     deleteEvent.addEventListener('click', (e) => {
+            //         e.preventDefault();
+            //         console.log("Event Deleted");
+            //         // db.collection('events').doc(id).delete().then(() => {
+                        
+            //         // })
+
+            //     });
+            // }
+
+
+            //   console.log(searchBar);
+            //   searchBar.addEventListener('keyup', (e) =>{
+            //       const searchString = e.target.value;
+            //       const filteredEvents = x.filter( manageEventLists => {
+            //           return x.includes(searchString);
+            //       });
+            //       console.log(filteredEvents);
+            //   }); 
+             
