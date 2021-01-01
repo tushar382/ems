@@ -1,0 +1,22 @@
+/*ACCOUNT DETAILS MODAL */
+#modal-account{
+    border-radius: 20px;
+}
+#modal-edit-profile{
+    border-radius: 20px;
+}
+#profile-heading{
+    border-radius: 20px;
+    font-size: x-large;
+}
+#edit-profile-heading{
+    border-radius: 20px;
+    font-size: x-large;
+    text-align: center;
+}
+#btn-edit-profile{
+    border-radius: 20px;
+}
+#btn-update-profile{
+    border-radius: 20px;
+}

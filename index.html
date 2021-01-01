@@ -7,11 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet">
-    <title>Admin Register / login </title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    
-    </link>
+    <link rel="stylesheet" type="text/css" href="style.css"> 
+    <title>Sky Events</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"></link>
 
 </head>
 
@@ -179,12 +177,58 @@
 
     <!-- ACCOUNT MODAL -->
     <div id="modal-account" class="modal">
-        <div class="modal-content center-align lighten-2">
-            <h4 class="grey lighten-1">Profile</h4><br /></hr>
+        <div class="modal-content center-align grey lighten-2">
+            <h4 class="grey lighten-1" id="profile-heading">Profile</h4><br /></hr>
             <div class="account-details"></div>
-            
+            <a class="modal-trigger" data-target="modal-edit-profile" id="btn-edit-profile">Edit Profile</a>
         </div>
     </div>
+    </body> 
+
+    <!--EDIT PROFILE-->
+    <div id="modal-edit-profile" class="modal" >
+        <div class="modal-content grey lighten-2">
+            <h4 class="grey lighten-1" id="edit-profile-heading"> Edit Profile</h4><br /></hr>
+            <div class="edit-profile-content ">
+                <form id="edit-profile-form">
+                    <div class="input-field">
+                        <i class="material-icons prefix">call</i>
+                        <input type="number" id="add-phone-no" required>
+                        <label for="add-phone-no">Add Phone Number</label>
+                    </div>
+                    <div>
+                        <label style="font-size: medium;">Add Gender</label>
+                        <p>
+                            <label>
+                              <input name="group1" type="radio" id="gender" checked />
+                              <span>Male</span>
+                            </label>
+                          </p>
+                          <p>
+                            <label>
+                              <input name="group1" type="radio" id="gender"/>
+                              <span>Female</span>
+                            </label>
+                          </p>
+                          <p>
+                            <label>
+                              <input class="with-gap" name="group1" type="radio" id="gender" />
+                              <span>Other</span>
+                            </label>
+                          </p>
+                    </div><br>
+                    <div class="input-field">
+                        <input type="number" id="add-age" required>
+                        <label for="add-age">Add Age</label>
+                    </div>
+                    <button class="btn grey darken-2 z-depth-0 center-align" id="btn-update-profile">Update</button>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+
 
     <!-- CREATE EVENT MODAL -->
     <div id="modal-create" class="modal">

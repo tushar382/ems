@@ -59,6 +59,30 @@ manageEvent.addEventListener('click',(e) => {
     console.log("ManageEvent");
 });
 
+//edit profile
+const editProfile = document.querySelector('#edit-profile-form');
+editProfile.addEventListener('submit',(e) =>{
+    e.preventDefault();
+
+    //get user info
+    const user = auth.currentUser;
+    const phoneno = editProfile['add-phone-no'].value;
+    const gender = editProfile['gender'].value;
+    const age = editProfile['add-age'].value;
+    
+    user.updateProfile(phoneno, gender, age).then(cred =>{
+        return db.collection('users').doc(cred.user.uid).set({
+            phoneno: editProfile['add-phone-no'].value,
+            gender: editProfile['gender'].value,
+            age: editProfile['add-age'].value
+        });
+    }).then(() => {
+        console.log("user profile updated ");
+    }).catch(() => {
+        console.log("error");
+    });
+});
+
 
 //signup
 const signupForm = document.querySelector('#signup-form');
@@ -86,23 +110,6 @@ signupForm.addEventListener('submit',(e) => {
     });
 });
 
-// logoutDesktop
-const logout = document.querySelector('#logout');
-logout.addEventListener('click', (e) => {
-  e.preventDefault();
-  auth.signOut();
-  
-});
-
-// logoutMobile
-const logoutMobile = document.querySelector('#logout-mobile');
-logoutMobile.addEventListener('click', (e) => {
-  e.preventDefault();
-  auth.signOut();
-
-});
-
-
 //login
 const loginForm = document.querySelector('#login-form');
 loginForm.addEventListener('submit',(e) =>{
@@ -121,3 +128,19 @@ loginForm.addEventListener('submit',(e) =>{
         loginForm.querySelector('.error').innerHTML = err.message;
     })
 })
+
+// logoutDesktop
+const logout = document.querySelector('#logout');
+logout.addEventListener('click', (e) => {
+  e.preventDefault();
+  auth.signOut();
+  
+});
+
+// logoutMobile
+const logoutMobile = document.querySelector('#logout-mobile');
+logoutMobile.addEventListener('click', (e) => {
+  e.preventDefault();
+  auth.signOut();
+
+});
