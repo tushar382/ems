@@ -1,0 +1,14 @@
+.myBtn{
+
+        background-color:#c2c2c2;
+        border-radius:32px;
+        border:1px solid #ffffff;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:Trebuchet MS;
+        font-size:17px;
+        font-weight:bold;
+        padding:15px 15px;
+        text-decoration:none;
+}

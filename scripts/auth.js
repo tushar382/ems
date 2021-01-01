@@ -68,11 +68,13 @@ signupForm.addEventListener('submit',(e) => {
     //get user info
     const email = signupForm['signup-email'].value;
     const password = signupForm['signup-password'].value;
+   
 
     // signup the user 
     auth.createUserWithEmailAndPassword(email, password).then(cred =>{
         return db.collection('users').doc(cred.user.uid).set({
-            bio: signupForm['signup-bio'].value
+            bio: signupForm['signup-bio'].value,
+            name: signupForm['signup-name'].value
         });      
     }).then(() => {
         const modal = document.querySelector('#modal-signup');
