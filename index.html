@@ -200,19 +200,19 @@
                         <label style="font-size: medium;">Add Gender</label>
                         <p>
                             <label>
-                              <input name="group1" type="radio" id="gender" checked />
+                              <input name="group1" type="radio" id="gender" value="male" checked />
                               <span>Male</span>
                             </label>
                           </p>
                           <p>
                             <label>
-                              <input name="group1" type="radio" id="gender"/>
+                              <input name="group1" type="radio" value="female" id="gender"/>
                               <span>Female</span>
                             </label>
                           </p>
                           <p>
                             <label>
-                              <input class="with-gap" name="group1" type="radio" id="gender" />
+                              <input class="with-gap" name="group1" value="other" type="radio" id="gender" />
                               <span>Other</span>
                             </label>
                           </p>
@@ -222,7 +222,8 @@
                         <label for="add-age">Add Age</label>
                     </div>
                     <button class="btn grey darken-2 z-depth-0 center-align" id="btn-update-profile">Update</button>
-
+                    <button class="btn grey darken-2 z-depth-0 center-align" id="btn-cancel-update-profile">Cancel</button>
+                    <p class="error pink-text center-align"></p>
 
                 </form>
             </div>

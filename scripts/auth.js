@@ -1,3 +1,5 @@
+
+
 //add admin cloud function
 const adminForm = document.querySelector('.admin-actions');
 adminForm.addEventListener('submit', (e) =>{
@@ -54,34 +56,38 @@ createForm.addEventListener('submit', (e) => {
 
 //manage event
 const manageEvent = document.querySelector('#modal-manage');
-manageEvent.addEventListener('click',(e) => {
+manageEvent.addEventListener('click',(e) =>  {
     e.preventDefault();
     console.log("ManageEvent");
 });
 
 //edit profile
 const editProfile = document.querySelector('#edit-profile-form');
-editProfile.addEventListener('submit',(e) =>{
+editProfile.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    //get user info
-    const user = auth.currentUser;
-    const phoneno = editProfile['add-phone-no'].value;
-    const gender = editProfile['gender'].value;
-    const age = editProfile['add-age'].value;
-    
-    user.updateProfile(phoneno, gender, age).then(cred =>{
-        return db.collection('users').doc(cred.user.uid).set({
-            phoneno: editProfile['add-phone-no'].value,
-            gender: editProfile['gender'].value,
-            age: editProfile['add-age'].value
-        });
-    }).then(() => {
-        console.log("user profile updated ");
-    }).catch(() => {
-        console.log("error");
+     const user = auth.currentUser;
+
+     return db.collection("users").doc(user.uid).set({
+        phoneno : editProfile['add-phone-no'].value,
+        gender : editProfile['gender'].value,
+        age : editProfile['add-age'].value
+    },{ merge: true })
+    .then(() => {
+        const modal = document.querySelector('#modal-edit-profile');
+        M.Modal.getInstance(modal).close();
+        editProfile.reset();
+        signupForm.querySelector('.error').innerHTML = '';
+    }).catch(err => {
+        signupForm.querySelector('.error').innerHTML = err.message;
     });
 });
+const cancelEditProfile = document.querySelector('#btn-cancel-update-profile');
+cancelEditProfile.addEventListener('click',(e) => {
+    e.preventDefault();
+    const modal = document.querySelector('#modal-edit-profile');
+        M.Modal.getInstance(modal).close();
+})
 
 
 //signup
@@ -99,7 +105,7 @@ signupForm.addEventListener('submit',(e) => {
         return db.collection('users').doc(cred.user.uid).set({
             bio: signupForm['signup-bio'].value,
             name: signupForm['signup-name'].value
-        });      
+        },{ merge: true });      
     }).then(() => {
         const modal = document.querySelector('#modal-signup');
         M.Modal.getInstance(modal).close();
