@@ -88,6 +88,13 @@ cancelEditProfile.addEventListener('click',(e) => {
     const modal = document.querySelector('#modal-edit-profile');
         M.Modal.getInstance(modal).close();
 })
+const cancelViewProfile = document.querySelector('#btn-cancel-view-profile');
+cancelViewProfile.addEventListener('click',(e) => {
+    e.preventDefault();
+    const modal = document.querySelector('#modal-account');
+        M.Modal.getInstance(modal).close();
+})
+
 
 
 //signup

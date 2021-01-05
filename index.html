@@ -178,17 +178,20 @@
     <!-- ACCOUNT MODAL -->
     <div id="modal-account" class="modal">
         <div class="modal-content center-align grey lighten-2">
-            <h4 class="grey lighten-1" id="profile-heading">Profile</h4><br /></hr>
+            <h4  id="profile-heading">Profile</h4>
+            
+            <br /></hr>
             <div class="account-details"></div>
-            <a class="modal-trigger" data-target="modal-edit-profile" id="btn-edit-profile">Edit Profile</a>
+            <button class="modal-trigger btn-floating btn-small waves-effect waves-light green" data-target="modal-edit-profile" id="btn-edit-profile"><i class="material-icons">edit</i></button>
+            <button class="btn-floating btn-small waves-effect waves-light red" id="btn-cancel-view-profile"><i class="material-icons">clear</i></button>
         </div>
     </div>
     </body> 
 
     <!--EDIT PROFILE-->
     <div id="modal-edit-profile" class="modal" >
-        <div class="modal-content grey lighten-2">
-            <h4 class="grey lighten-1" id="edit-profile-heading"> Edit Profile</h4><br /></hr>
+        <div class="modal-content center-align grey lighten-2">
+            <h4  id="edit-profile-heading"> Edit Profile</h4><br /></hr>
             <div class="edit-profile-content ">
                 <form id="edit-profile-form">
                     <div class="input-field">
@@ -221,8 +224,8 @@
                         <input type="number" id="add-age" required>
                         <label for="add-age">Add Age</label>
                     </div>
-                    <button class="btn grey darken-2 z-depth-0 center-align" id="btn-update-profile">Update</button>
-                    <button class="btn grey darken-2 z-depth-0 center-align" id="btn-cancel-update-profile">Cancel</button>
+                    <button class="btn-floating btn-small waves-effect waves-light green" id="btn-update-profile"><i class="material-icons">check</i>Update</button>
+                    <button class="btn-floating btn-small waves-effect waves-light red" id="btn-cancel-update-profile"><i class="material-icons">clear</i>Cancel</button>
                     <p class="error pink-text center-align"></p>
 
                 </form>

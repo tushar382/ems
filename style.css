@@ -23,3 +23,12 @@
 #btn-cancel-update-profile{
     border-radius: 20px;
 }
+#btn-cancel-view-profile{
+    border-radius: 20px;
+}
+.topright {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    font-size: 18px;
+  }

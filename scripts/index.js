@@ -17,7 +17,7 @@ const setupUI = (user) => {
             const html = `<div class="modal-content">
                             <img src="/img/user-icon.png" height="100px" width="100px" alt="user"/> <br> 
                             <i class="material-icons prefix blue-text">email</i><br>${user.email}<br>
-                            <b>${doc.data().name}</b><br>${doc.data().bio}<br><i class="material-icons prefix">call</i><br>
+                            <b>${doc.data().name}</b><br>${doc.data().bio}<br><i class="material-icons prefix blue-text">call</i><br>
                             ${doc.data().phoneno}<br>
                             <div class="red-text">${user.admin ? 'Admin' : ''}</div>
                         </div>`;
