@@ -108,7 +108,7 @@ const setupEvents = (data) => {
         eventList.innerHTML = html;
     }
     else {
-        eventList.innerHTML = '<h5 class="center-align">Login to view Events</h5>'
+        eventList.innerHTML = ''
     }
 
 }
@@ -126,6 +126,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var items = document.querySelectorAll('.collapsible');
     M.Collapsible.init(items);
+
+    var elems = document.querySelectorAll('.carousel');
+    var instances = M.Carousel.init(elems,{fullWidth: true});
+
+
+
 
 });
 
