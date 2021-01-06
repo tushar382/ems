@@ -5,6 +5,7 @@ const loggedOutLinks = document.querySelectorAll('.logged-out');
 const loggedInLinks = document.querySelectorAll('.logged-in');
 const accountDetails = document.querySelector('.account-details');
 const adminItems = document.querySelectorAll('.admin');
+const userItems = document.querySelector('.useronly');
 
 const setupUI = (user) => {
     if (user) {
@@ -16,8 +17,8 @@ const setupUI = (user) => {
         db.collection('users').doc(user.uid).get().then(doc => {
             const html = `<div class="modal-content">
                             <img src="/img/user-icon.png" height="100px" width="100px" alt="user"/> <br> 
-                            <i class="material-icons prefix blue-text">email</i><br>${user.email}<br>
-                            <b>${doc.data().name}</b><br>${doc.data().bio}<br><i class="material-icons prefix blue-text">call</i><br>
+                            <i class="material-icons prefix white-text">email</i><br>${user.email}<br>
+                            <b>${doc.data().name}</b><br>${doc.data().bio}<br><i class="material-icons prefix white-text">call</i><br>
                             ${doc.data().phoneno}<br>
                             <div class="red-text">${user.admin ? 'Admin' : ''}</div>
                         </div>`;
@@ -29,7 +30,9 @@ const setupUI = (user) => {
         //toggle UI Elements
         loggedInLinks.forEach(item => item.style.display = 'block');
         loggedOutLinks.forEach(item => item.style.display = 'none');
+        
     }
+    
     else {
         adminItems.forEach(item => item.style.display = 'none');
         //hide account info
@@ -37,6 +40,7 @@ const setupUI = (user) => {
         //toggle UI Elements
         loggedInLinks.forEach(item => item.style.display = 'none');
         loggedOutLinks.forEach(item => item.style.display = 'block');
+        
     }
 }
 //setup the manage-events list
@@ -79,6 +83,7 @@ const setupEvents = (data) => {
     if (data.length) {
         
         let html = "";
+        
         data.forEach(doc => {
             const event = doc.data();
 
@@ -128,9 +133,14 @@ document.addEventListener('DOMContentLoaded', function () {
     M.Collapsible.init(items);
 
     var elems = document.querySelectorAll('.carousel');
-    var instances = M.Carousel.init(elems,{fullWidth: true});
+    var instances = M.Carousel.init(elems,{
+        fullWidth: true,
+        indicators: true
+      });
+    
 
-
+    var elems = document.querySelectorAll('.datepicker');
+    var instances = M.Datepicker.init(elems);
 
 
 });

@@ -1,6 +1,7 @@
 /*ACCOUNT DETAILS MODAL */
 #modal-account{
     border-radius: 20px;
+    background-image: url('/img/profile-background.png');
 }
 #modal-edit-profile{
     border-radius: 20px;
@@ -26,9 +27,35 @@
 #btn-cancel-view-profile{
     border-radius: 20px;
 }
-.topright {
-    position: absolute;
-    top: 8px;
-    right: 16px;
-    font-size: 18px;
+#modal-edit-profile{
+    width: auto;
+    height: auto;
+}
+/*  TO STICK FOOTER */
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
   }
+
+main {
+    flex: 1 0 auto;
+  }
+
+/* LOGIN MODAL  */
+#btn-login{
+    border-radius: 20px;
+}
+
+#modal-login{
+    background-image: url('/img/profile-background.png');
+    border-radius: 20px;
+}
+/* SIGN UP MODAL  */
+#btn-signup{
+    border-radius: 20px;
+}
+#modal-signup{
+    background-image: url('/img/profile-background.png');
+    border-radius: 20px;
+}

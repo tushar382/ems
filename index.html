@@ -7,10 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="style.css"> 
+    <link rel="stylesheet" type="text/css" href="style.css">
     <title>Sky Events</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"></link>
-    </head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    </link>
+</head>
 
 <body class="grey lighten-3">
     <!-- NAVBAR -->
@@ -51,132 +52,128 @@
         </nav>
     </div>
 
-    <ul class="sidenav grey darken-3" id="mobile-links">
+    <ul class="sidenav black" id="mobile-links">
         <li class="logged-in" style="display: none;">
             <a href="#" class="white-text modal-trigger" data-target="modal-account">
-                <i class="material-icons prefix">account_box</i>Account</a>
+                <i class="material-icons prefix white-text">account_box</i>Account</a>
         </li>
         <li class="logged-in" style="display: none;">
             <a href="#" class="white-text modal-trigger" data-target="modal-my-events">
-                <i class="material-icons prefix">event</i>My Events</a>
+                <i class="material-icons prefix white-text">event</i>My Events</a>
         </li>
         <li class="admin" style="display: none;">
             <a href="#" class="white-text modal-trigger" data-target="modal-create">
-                <i class="material-icons prefix">create</i>Create Event</a>
+                <i class="material-icons prefix white-text">create</i>Create Event</a>
         </li>
         <li class="admin" style="display: none;">
-            <a href="#"  class="white-text modal-trigger" data-target="modal-manage">
-                <i class="material-icons prefix">build</i>Manage Event</a>
+            <a href="#" class="white-text modal-trigger" data-target="modal-manage">
+                <i class="material-icons prefix white-text">build</i>Manage Event</a>
         </li>
         <li class="logged-out" style="display: none;">
             <a href="#" class="white-text modal-trigger" data-target="modal-login">
-                <i class="material-icons prefix">login</i>Login</a>
+                <i class="material-icons prefix white-text">login</i>Login</a>
         </li>
         <li class="logged-out" style="display: none;">
             <a href="#" class="white-text modal-trigger" data-target="modal-signup">
-                <i class="material-icons prefix">how_to_reg</i>Sign up</a>
+                <i class="material-icons prefix white-text">how_to_reg</i>Sign up</a>
         </li>
         <li class="logged-in" style="display: none;">
             <a href="#" class="white-text" id="logout-mobile">
-                <i class="material-icons prefix">directions_run</i>Logout</a>
-          </li>
+                <i class="material-icons prefix white-text">directions_run</i>Logout</a>
+        </li>
         </span>
     </ul>
 
-    <div class="carousel carousel-slider center">
+    <div class="carousel carousel-slider logged-out useronly">
         <a class="carousel-item" href="#one!"><img src="https://source.unsplash.com/1400x350/?nature,water"></a>
         <a class="carousel-item" href="#two!"><img src="https://source.unsplash.com/1400x350/?nature,water"></a>
         <a class="carousel-item" href="#three!"><img src="https://source.unsplash.com/1400x350/?nature,water"></a>
-      </div>
-          
-  
+    </div>
 
-    <!--ADMIN ACTIONS-->
-    <form class="center-align admin-actions admin" style="margin: 40px auto; max-width: 300px; display: none;">
-        <input type="email" placeholder="User email" id="admin-email" required />
-        <button class="btn-small yellow darken-2 z-depth-0">Make admin</button>
-    </form>
+
+
+
 
     <!--MANAGE EVENTS MODAL-->
     <div id="modal-manage" class="modal">
         <div class="modal-content">
-            <h4>Manage Events</h4><br/>
+            <h4>Manage Events</h4><br />
             <div class="container" style="margin-top: 40px;">
                 <div id="searchWrapper">
-                    <input type="text" name="searchbar" id="searchBar" placeholder="search for events"/>
+                    <input type="text" name="searchbar" id="searchBar" placeholder="search for events" />
                 </div>
-                <ul class="collapsible z-depth-0 manage-events"  style="border: none;">
+                <ul class="collapsible z-depth-0 manage-events" style="border: none;">
 
-                    
+
                 </ul>
-               <button id="manage-Events">Manage</button>
+                <button id="manage-Events">Manage</button>
             </div>
-            
+
         </div>
     </div>
 
     <!--MY EVENTS MODAL-->
     <div id="modal-my-events" class="modal">
         <div class="modal-content">
-            <h4>My Events</h4><br/>
+            <h4>My Events</h4><br />
             <div class="container" style="margin-top: 40px;">
-                <ul class="collapsible z-depth-0 "  style="border: none;">
+                <ul class="collapsible z-depth-0 " style="border: none;">
 
-                    
+
                 </ul>
             </div>
-            
+
         </div>
     </div>
 
 
 
-    <!-- SIGN UP MODAL -->
-    <div id="modal-signup" class="modal">
+    <!-- SIGN UP MODAL --> 
+    <div id="modal-signup" class="modal center-align">
         <div class="modal-content">
             <h4>Sign up</h4><br />
             <form id="signup-form">
                 <div class="input-field">
-                    <i class="material-icons prefix">create</i>
+                    <i class="material-icons prefix"  style="font-size: 25px">create</i>
                     <input type="text" id="signup-name" required />
                     <label for="signup-name">Name</label>
                 </div>
                 <div class="input-field">
-                    <i class="material-icons prefix">email</i>
+                    <i class="material-icons prefix"  style="font-size: 25px">email</i>
                     <input type="email" id="signup-email" required />
                     <label for="signup-email">Email address</label>
                 </div>
                 <div class="input-field">
-                    <i class="material-icons prefix">vpn_key</i>
+                    <i class="material-icons prefix"  style="font-size: 25px">vpn_key</i>
                     <input type="password" id="signup-password" required />
                     <label for="signup-password">Choose password</label>
                 </div>
                 <div class="input-field">
-                    <i class="material-icons prefix">person</i>
+                    <i class="material-icons prefix"  style="font-size: 25px">person</i>
                     <input type="text" id="signup-bio" required />
                     <label for="signup-bio">Bio</label>
                 </div>
-                <button class="btn yellow darken-2 z-depth-0 center-align">Sign up</button>
+                <button class="btn blue lighten-1 z-depth-0 center-align" id="btn-signup">Sign up</button>
                 <p class="error pink-text center-align"></p>
             </form>
         </div>
     </div>
     <!-- LOGIN MODAL -->
-    <div id="modal-login" class="modal">
+    <div id="modal-login" class="modal center-align">
         <div class="modal-content">
             <h4>Login</h4><br />
             <form id="login-form">
                 <div class="input-field">
-                    <i class="material-icons prefix">email</i>
+                    <i class="material-icons prefix" style="font-size: 25px">email</i>
                     <input type="email" id="login-email" required />
                     <label for="login-email">Email address</label>
                 </div>
                 <div class="input-field">
-                    <i class="material-icons prefix">vpn_key</i>
+                    <i class="material-icons prefix"  style="font-size: 25px">vpn_key</i>
                     <input type="password" id="login-password" required />
                     <label for="login-password">Your password</label>
                 </div>
-                <button class="btn yellow darken-2 z-depth-0 center-align">Login</button>
+                <button class="btn blue lighten-1 z-depth-0 center-align" id="btn-login">Login</button>
                 <p class="error pink-text center-align"></p>
             </form>
         </div>
@@ -184,160 +181,200 @@
 
     <!-- ACCOUNT MODAL -->
     <div id="modal-account" class="modal">
-        <div class="modal-content center-align grey lighten-2">
-            <h4  id="profile-heading">Profile</h4>
-            
+        <div class="modal-content center-align" >
+            <h4 id="profile-heading">Profile</h4>
+
             <br /></hr>
             <div class="account-details"></div>
-            <button class="modal-trigger btn-floating btn-small waves-effect waves-light green" data-target="modal-edit-profile" id="btn-edit-profile"><i class="material-icons">edit</i></button>
-            <button class="btn-floating btn-small waves-effect waves-light red" id="btn-cancel-view-profile"><i class="material-icons">clear</i></button>
+            <button class="modal-trigger btn-floating btn-small waves-effect waves-light green"
+                data-target="modal-edit-profile" id="btn-edit-profile"><i class="material-icons">edit</i></button>
+            <button class="btn-floating btn-small waves-effect waves-light red" id="btn-cancel-view-profile"><i
+                    class="material-icons">clear</i></button>
         </div>
     </div>
-    </body> 
+</body>
 
-    <!--EDIT PROFILE-->
-    <div id="modal-edit-profile" class="modal" >
-        <div class="modal-content center-align grey lighten-2">
-            <h4  id="edit-profile-heading"> Edit Profile</h4><br /></hr>
-            <div class="edit-profile-content ">
-                <form id="edit-profile-form">
-                    <div class="input-field">
-                        <i class="material-icons prefix">call</i>
-                        <input type="number" id="add-phone-no" required>
-                        <label for="add-phone-no">Add Phone Number</label>
-                    </div>
-                    <div>
-                        <label style="font-size: medium;">Add Gender</label>
-                        <p>
-                            <label>
-                              <input name="group1" type="radio" id="gender" value="male" checked />
-                              <span>Male</span>
-                            </label>
-                          </p>
-                          <p>
-                            <label>
-                              <input name="group1" type="radio" value="female" id="gender"/>
-                              <span>Female</span>
-                            </label>
-                          </p>
-                          <p>
-                            <label>
-                              <input class="with-gap" name="group1" value="other" type="radio" id="gender" />
-                              <span>Other</span>
-                            </label>
-                          </p>
-                    </div><br>
-                    <div class="input-field">
-                        <input type="number" id="add-age" required>
-                        <label for="add-age">Add Age</label>
-                    </div>
-                    <button class="btn-floating btn-small waves-effect waves-light green" id="btn-update-profile"><i class="material-icons">check</i>Update</button>
-                    <button class="btn-floating btn-small waves-effect waves-light red" id="btn-cancel-update-profile"><i class="material-icons">clear</i>Cancel</button>
-                    <p class="error pink-text center-align"></p>
+<!--EDIT PROFILE-->
+<div id="modal-edit-profile" class="modal">
+    <div class="modal-content center-align white">
+        <h4 id="edit-profile-heading"> Edit Profile</h4><br /></hr>
+        <div class="edit-profile-content ">
+            <form id="edit-profile-form">
+                <div class="input-field">
+                    <i class="material-icons prefix">call</i>
+                    <input type="number" id="add-phone-no" required>
+                    <label for="add-phone-no">Add Phone Number</label>
+                </div>
+                <div>
+                    <label style="font-size: medium;">Add Gender</label>
+                    <p>
+                        <label>
+                            <input name="group1" type="radio" id="gender" value="male" checked />
+                            <span>Male</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input name="group1" type="radio" value="female" id="gender" />
+                            <span>Female</span>
+                        </label>
+                    </p>
+                    <p>
+                        <label>
+                            <input class="with-gap" name="group1" value="other" type="radio" id="gender" />
+                            <span>Other</span>
+                        </label>
+                    </p>
+                </div><br>
+                <div class="input-field">
+                    <input type="number" id="add-age" required>
+                    <label for="add-age">Add Age</label>
+                </div>
+                <button class="btn-floating btn-small waves-effect waves-light green" id="btn-update-profile"><i
+                        class="material-icons">check</i>Update</button>
+                <button class="btn-floating btn-small waves-effect waves-light red" id="btn-cancel-update-profile"><i
+                        class="material-icons">clear</i>Cancel</button>
+                <p class="error pink-text center-align"></p>
 
-                </form>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- CREATE EVENT MODAL -->
-    <div id="modal-create" class="modal">
-        <div class="modal-content">
-            <h4>Create Event</h4><br />
-            <form id="create-form">
-                <div class="input-field">
-                    <i class="material-icons prefix">title</i>
-                    <input type="text" id="title" required>
-                    <label for="title">Event Title</label>
-                </div>
-                <div class="input-field">
-                    <i class="material-icons prefix">description</i>
-                    <input type="text" id="desc" required>
-                    <label for="title">Description</label>
-                </div>
-                <div class="input-field">
-                    <i class="material-icons prefix">bookmark</i>
-                    <input type="text" id="eligibilty" required>
-                    <label for="title">Eligibilty</label>
-                </div>
-                <div class="input-field">
-                    <i class="material-icons prefix">schedule</i>
-                    <input type="text" id="schedule" required>
-                    <label for="title">Schedule</label>
-                </div>
-                <div class="input-field">
-                    <i class="material-icons prefix">location_on</i>
-                    <input type="text" id="location" required>
-                    <label for="title">Location</label>
-                </div>
-                <div class="input-field">
-                    <i class="material-icons prefix">attach_money</i>
-                    <input type="text" id="payment" required>
-                    <label for="title">Payment</label>
-                </div>
-                
-                <button class="btn yellow darken-2 z-depth-0">Create</button>
             </form>
         </div>
     </div>
+</div>
 
-    <!-- EVENT LIST -->
-    <div class="container" style="margin-top: 40px;">
-        <ul class="collapsible z-depth-0 events" style="border: none;">
-            
-        </ul>
+
+<!-- CREATE EVENT MODAL -->
+<div id="modal-create" class="modal">
+    <div class="modal-content">
+        <h4>Create Event</h4><br />
+        <form id="create-form">
+            <div class="input-field">
+                <i class="material-icons prefix">title</i>
+                <label for="title">Event Title</label>
+                <input type="text" id="title" required>
+
+            </div>
+            <div class="input-field">
+                <i class="material-icons prefix">description</i>
+                <label for="desc">Description</label>
+                <input type="text" id="desc" required>
+
+            </div>
+            <div class="input-field">
+                <i class="material-icons prefix">bookmark</i>
+                <label for="eligibilty">Eligibilty</label>
+                <input type="text" id="eligibilty" required>
+
+            </div>
+            <div class="input-field">
+                <i class="material-icons prefix">schedule</i>
+                <input type="datetime" class="datepicker" id="schedule" placeholder="Schedule" required>
+                <label for="schedule"></label>
+            </div>
+            <div class="input-field">
+                <i class="material-icons prefix">location_on</i>
+                <input type="text" id="location" placeholder="Location" required>
+                <label for="location"></label>
+            </div>
+            <div class="input-field">
+                <i class="material-icons prefix">attach_money</i>
+                <input type="text" id="payment" required>
+                <label for="payment">Payment</label>
+            </div>
+
+            <button class="btn yellow darken-2 z-depth-0">Create</button>
+        </form>
     </div>
+</div>
+
+<!-- EVENT LIST -->
+<div class="container" style="margin-top: 40px;">
+    
+    <ul class="collapsible z-depth-0 events" style="border: none;">
+        <h4>Availble Events</h4>
+    </ul>
+</div>
+
+<!--ADMIN ACTIONS-->
+<form class="center-align admin-actions admin" style="margin: 40px auto; max-width: 300px; display: none;">
+    <input type="email" placeholder="User email" id="admin-email" required />
+    <button class="btn-small yellow darken-2 z-depth-0">Make admin</button>
+</form>
+
+<!--FOOTER-->
+<footer class="page-footer grey darken-3">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Footer Content</h5>
+          <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Links</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright grey darken-4">
+      <div class="container center-align">
+      © 2021 by SkyEvents | Designed by Tushar Ghadi
+      </div>
+    </div>
+  </footer>
+      
 
 
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-functions.js"></script>
 
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-functions.js"></script>
 
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
+<!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
 
-    <script>
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        var firebaseConfig = {
-            apiKey: "AIzaSyAGVDJvncV6sMaNI55zjyT7hnvMwJ2iBcE",
-            authDomain: "event-management-system-a8d99.firebaseapp.com",
-            projectId: "event-management-system-a8d99",
-            appId: "1:498689851436:web:865c6282361285eb8fd189",
-            measurementId: "G-ZBH1Y22WYJ"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        firebase.analytics();
-        // Make auth,functions and firestore references
-        const auth = firebase.auth();
-        const db = firebase.firestore();
-        const functions = firebase.functions();
-        //update firestore settings
-        db.settings({ timestampsInSanpshots: true });
-    </script>
+<script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+        apiKey: "AIzaSyAGVDJvncV6sMaNI55zjyT7hnvMwJ2iBcE",
+        authDomain: "event-management-system-a8d99.firebaseapp.com",
+        projectId: "event-management-system-a8d99",
+        appId: "1:498689851436:web:865c6282361285eb8fd189",
+        measurementId: "G-ZBH1Y22WYJ"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    // Make auth,functions and firestore references
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+    const functions = firebase.functions();
+    //update firestore settings
+    db.settings({ timestampsInSanpshots: true });
+</script>
 
-    <!-- Compiled and minified JavaScript -->
+<!-- Compiled and minified JavaScript -->
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-    <script>
-        $(document).ready(function () {
-            $('.sidenav').sidenav();
-        });
-    </script>
-   
-    <script src="scripts/auth.js"></script>
-    <script src="scripts/index.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.sidenav').sidenav();
+    });
+</script>
+
+<script src="scripts/auth.js"></script>
+<script src="scripts/index.js"></script>
 </body>
 
 </html>
