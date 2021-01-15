@@ -1,18 +1,31 @@
+
 /*ACCOUNT DETAILS MODAL */
 #modal-account{
+    text-align: center;
+    overflow: hidden;
     border-radius: 20px;
-    background-image: url('/img/profile-background.png');
+    background-size: auto;
+    background-image: linear-gradient(to top, rgba(20, 177, 216, 10), rgb(22, 90, 238));
+    
 }
 #modal-edit-profile{
     border-radius: 20px;
+    background-image: linear-gradient(to top, rgba(20, 177, 216, 10), rgb(22, 90, 238));
+    
 }
 #profile-heading{
-    border-radius: 20px;
+    border-radius: 18px;
     font-size: x-large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-weight: 300;
 }
 #edit-profile-heading{
     border-radius: 20px;
     font-size: x-large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-weight: 300;
     text-align: center;
 }
 #btn-edit-profile{
@@ -26,10 +39,6 @@
 }
 #btn-cancel-view-profile{
     border-radius: 20px;
-}
-#modal-edit-profile{
-    width: auto;
-    height: auto;
 }
 /*  TO STICK FOOTER */
 body {
@@ -45,17 +54,49 @@ main {
 /* LOGIN MODAL  */
 #btn-login{
     border-radius: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-weight: 300;
 }
 
 #modal-login{
-    background-image: url('/img/profile-background.png');
+    background-image: linear-gradient(to top, rgba(20, 177, 216, 10), rgb(22, 90, 238));
     border-radius: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-weight: 300;
 }
 /* SIGN UP MODAL  */
 #btn-signup{
     border-radius: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-weight: 300;
 }
 #modal-signup{
-    background-image: url('/img/profile-background.png');
+    background-image: linear-gradient(to top, rgba(20, 177, 216, 10), rgb(22, 90, 238));
+    border-radius: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-weight: 300;
+}
+/* * MODAL */
+.modal { max-height: 100%; overflow: visible}
+/* CREATE EVENT MODAL*/
+#modal-create{
+    background-image: linear-gradient(to top, rgba(20, 177, 216, 10), rgb(22, 90, 238));
+    border-radius: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    font-weight: 300;
+}
+#create-event-heading{
+    font-size: x-large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-weight: 300;
+    text-align: center;
+}
+#btn-create-event{
     border-radius: 20px;
 }

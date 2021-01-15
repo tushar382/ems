@@ -54,7 +54,7 @@
 
     <ul class="sidenav black" id="mobile-links">
         <li class="logged-in" style="display: none;">
-            <a href="#" class="white-text modal-trigger" data-target="modal-account">
+            <a href="#" class="white-text modal-trigger hoverable" data-target="modal-account">
                 <i class="material-icons prefix white-text">account_box</i>Account</a>
         </li>
         <li class="logged-in" style="display: none;">
@@ -85,9 +85,9 @@
     </ul>
 
     <div class="carousel carousel-slider logged-out useronly">
-        <a class="carousel-item" href="#one!"><img src="https://source.unsplash.com/1400x350/?nature,water"></a>
-        <a class="carousel-item" href="#two!"><img src="https://source.unsplash.com/1400x350/?nature,water"></a>
-        <a class="carousel-item" href="#three!"><img src="https://source.unsplash.com/1400x350/?nature,water"></a>
+        <a class="carousel-item" href="#one!"><img class="responsive-img" src="https://source.unsplash.com/1400x350/?nature,water"></a>
+        <a class="carousel-item" href="#two!"><img class="responsive-img" src="https://source.unsplash.com/1400x350/?nature,water"></a>
+        <a class="carousel-item" href="#three!"><img class="responsive-img" src="https://source.unsplash.com/1400x350/?nature,water"></a>
     </div>
 
 
@@ -134,22 +134,22 @@
             <h4>Sign up</h4><br />
             <form id="signup-form">
                 <div class="input-field">
-                    <i class="material-icons prefix"  style="font-size: 25px">create</i>
+                    <i class="material-icons prefix white-text"  style="font-size: 25px">create</i>
                     <input type="text" id="signup-name" required />
                     <label for="signup-name">Name</label>
                 </div>
                 <div class="input-field">
-                    <i class="material-icons prefix"  style="font-size: 25px">email</i>
+                    <i class="material-icons prefix white-text"  style="font-size: 25px">email</i>
                     <input type="email" id="signup-email" required />
                     <label for="signup-email">Email address</label>
                 </div>
                 <div class="input-field">
-                    <i class="material-icons prefix"  style="font-size: 25px">vpn_key</i>
+                    <i class="material-icons prefix white-text"  style="font-size: 25px">vpn_key</i>
                     <input type="password" id="signup-password" required />
                     <label for="signup-password">Choose password</label>
                 </div>
                 <div class="input-field">
-                    <i class="material-icons prefix"  style="font-size: 25px">person</i>
+                    <i class="material-icons prefix white-text"  style="font-size: 25px">person</i>
                     <input type="text" id="signup-bio" required />
                     <label for="signup-bio">Bio</label>
                 </div>
@@ -159,17 +159,17 @@
         </div>
     </div>
     <!-- LOGIN MODAL -->
-    <div id="modal-login" class="modal center-align">
-        <div class="modal-content">
+    <div id="modal-login" class="modal center-align" >
+        <div class="modal-content"> 
             <h4>Login</h4><br />
             <form id="login-form">
                 <div class="input-field">
-                    <i class="material-icons prefix" style="font-size: 25px">email</i>
+                    <i class="material-icons prefix white-text" style="font-size: 25px">email</i>
                     <input type="email" id="login-email" required />
                     <label for="login-email">Email address</label>
                 </div>
                 <div class="input-field">
-                    <i class="material-icons prefix"  style="font-size: 25px">vpn_key</i>
+                    <i class="material-icons prefix white-text"  style="font-size: 25px">vpn_key</i>
                     <input type="password" id="login-password" required />
                     <label for="login-password">Your password</label>
                 </div>
@@ -196,17 +196,17 @@
 
 <!--EDIT PROFILE-->
 <div id="modal-edit-profile" class="modal">
-    <div class="modal-content center-align white">
+    <div class="modal-content center-align ">
         <h4 id="edit-profile-heading"> Edit Profile</h4><br /></hr>
         <div class="edit-profile-content ">
             <form id="edit-profile-form">
                 <div class="input-field">
-                    <i class="material-icons prefix">call</i>
+                    <i class="material-icons prefix white-text">call</i>
                     <input type="number" id="add-phone-no" required>
-                    <label for="add-phone-no">Add Phone Number</label>
+                    <label for="add-phone-no" style="font-size: smaller; color: aliceblue;">Add Phone Number</label>
                 </div>
                 <div>
-                    <label style="font-size: medium;">Add Gender</label>
+                    <label style="font-size: medium; color: aliceblue;">Add Gender</label>
                     <p>
                         <label>
                             <input name="group1" type="radio" id="gender" value="male" checked />
@@ -228,7 +228,7 @@
                 </div><br>
                 <div class="input-field">
                     <input type="number" id="add-age" required>
-                    <label for="add-age">Add Age</label>
+                    <label for="add-age" style="font-size: smaller; color: aliceblue;">Add Age</label>
                 </div>
                 <button class="btn-floating btn-small waves-effect waves-light green" id="btn-update-profile"><i
                         class="material-icons">check</i>Update</button>
@@ -244,44 +244,44 @@
 
 <!-- CREATE EVENT MODAL -->
 <div id="modal-create" class="modal">
-    <div class="modal-content">
-        <h4>Create Event</h4><br />
+    <div class="modal-content center-align">
+        <h4  id="create-event-heading">Create Event</h4><br />
         <form id="create-form">
             <div class="input-field">
-                <i class="material-icons prefix">title</i>
-                <label for="title">Event Title</label>
+                <i class="material-icons prefix white-text">title</i>
+                <label for="title" style="font-size: smaller; color: aliceblue;">Event Title</label>
                 <input type="text" id="title" required>
 
             </div>
             <div class="input-field">
-                <i class="material-icons prefix">description</i>
-                <label for="desc">Description</label>
+                <i class="material-icons prefix white-text">description</i>
+                <label for="desc" style="font-size: smaller; color: aliceblue;">Description</label>
                 <input type="text" id="desc" required>
 
             </div>
-            <div class="input-field">
-                <i class="material-icons prefix">bookmark</i>
-                <label for="eligibilty">Eligibilty</label>
+            <div class="input-field"> 
+                <i class="material-icons prefix white-text">bookmark</i>
+                <label for="eligibilty" style="font-size: smaller; color: aliceblue;">Eligibilty</label>
                 <input type="text" id="eligibilty" required>
 
             </div>
             <div class="input-field">
-                <i class="material-icons prefix">schedule</i>
-                <input type="datetime" class="datepicker" id="schedule" placeholder="Schedule" required>
-                <label for="schedule"></label>
+                <i class="material-icons prefix white-text">schedule</i>
+                <input type="datetime" class="datepicker" id="schedule" placeholder="schedule" required>
+                <label for="schedule" style="font-size: smaller; color: aliceblue;"></label>
             </div>
             <div class="input-field">
-                <i class="material-icons prefix">location_on</i>
-                <input type="text" id="location" placeholder="Location" required>
-                <label for="location"></label>
+                <i class="material-icons prefix white-text">location_on</i>
+                <input type="text" id="location" required>
+                <label for="location" style="font-size: smaller; color: aliceblue;">Location</label>
             </div>
             <div class="input-field">
-                <i class="material-icons prefix">attach_money</i>
+                <i class="material-icons prefix white-text">attach_money</i>
                 <input type="text" id="payment" required>
-                <label for="payment">Payment</label>
+                <label for="payment" style="font-size: smaller; color: aliceblue;">Payment</label>
             </div>
 
-            <button class="btn yellow darken-2 z-depth-0">Create</button>
+            <button class="btn blue lighten-1 z-depth-0 center-align" id="btn-create-event">Create</button>
         </form>
     </div>
 </div>
@@ -309,12 +309,12 @@
           <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
         </div>
         <div class="col l4 offset-l2 s12">
-          <h5 class="white-text">Links</h5>
+          
           <ul>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+            <li><a class="grey-text text-lighten-3 hoverable" href="index.html">Home</a></li>
+            <li><a class="grey-text text-lighten-3 hoverable" href="#!">About us</a></li>
+            <li><a class="grey-text text-lighten-3 hoverable" href="#!">Contact us</a></li>
+            <li><a class="grey-text text-lighten-3 hoverable" href="#!">FAQ</a></li>
           </ul>
         </div>
       </div>
