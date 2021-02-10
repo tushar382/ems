@@ -100,3 +100,7 @@ main {
 #btn-create-event{
     border-radius: 20px;
 }
+/* Brandlogo */
+.brand-logo img {
+    padding-bottom: 2px;
+}
