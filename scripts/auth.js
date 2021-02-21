@@ -32,10 +32,13 @@ auth.onAuthStateChanged(user => {
     }
 });
 
+
+
 //create new event
 const createForm = document.querySelector('#create-form');
 createForm.addEventListener('submit', (e) => {
     e.preventDefault();
+
 
     db.collection('events').add({
         title: createForm['title'].value,
@@ -44,7 +47,8 @@ createForm.addEventListener('submit', (e) => {
         schedule: createForm['schedule'].value,
         location: createForm['location'].value,
         payment: createForm['payment'].value
-    }).then(() => {
+    }
+    ).then(() => {
         //close the modal and reset form
         const modal = document.querySelector('#modal-create');
         M.Modal.getInstance(modal).close();
@@ -53,6 +57,8 @@ createForm.addEventListener('submit', (e) => {
         console.log(err.message);
     })
 })
+
+
 
 //manage event
 const manageEvent = document.querySelector('#modal-manage');

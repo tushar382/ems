@@ -61,21 +61,11 @@ const manageEvents = (data) => {
         </hr> `
        ;
         
-            
-
             html += li;  
             
-        });
-        
-        
-        
-        
+        });     
         manageEventList.innerHTML = html;
     }
-   
-
-
-
 }
 //setup the events
 const setupEvents = (data) => {
@@ -86,7 +76,6 @@ const setupEvents = (data) => {
         
         data.forEach(doc => {
             const event = doc.data();
-
             const li = `
         </br>
         <li>
@@ -95,33 +84,21 @@ const setupEvents = (data) => {
             <p>Eligibility</p>${event.eligibility}</br><hr>
             <p>Schedule</p>${event.schedule}</br><hr>
             <p>Location</p>${event.location}</br><hr>
-            <p>Payment</p>${event.payment}</div>
-            
-            
+            <p>Payment</p>${event.payment}</br>
+            </div>
         </li>
-        
         </hr>
-        
-        
         `;
-       
-            html += li;
-            
-            
+            html += li;       
         });
-        
         eventList.innerHTML = html;
     }
+    
     else {
-        eventList.innerHTML = ''
+        eventList.innerHTML = '';
     }
 
 }
-
-
-
-
-
 
 // setup materialize components
 document.addEventListener('DOMContentLoaded', function () {
@@ -147,28 +124,3 @@ document.addEventListener('DOMContentLoaded', function () {
    
 
 });
-
-
- // Deleting events
-            // window.onload=function(){
-            //     deleteEvent = document.querySelector('#delete');
-            //     deleteEvent.addEventListener('click', (e) => {
-            //         e.preventDefault();
-            //         console.log("Event Deleted");
-            //         // db.collection('events').doc(id).delete().then(() => {
-                        
-            //         // })
-
-            //     });
-            // }
-
-
-            //   console.log(searchBar);
-            //   searchBar.addEventListener('keyup', (e) =>{
-            //       const searchString = e.target.value;
-            //       const filteredEvents = x.filter( manageEventLists => {
-            //           return x.includes(searchString);
-            //       });
-            //       console.log(filteredEvents);
-            //   }); 
-             
