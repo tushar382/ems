@@ -60,11 +60,13 @@ main {
 }
 
 #modal-login{
-    background-image: linear-gradient(to top, rgba(20, 177, 216, 10), rgb(22, 90, 238));
+    background-color: white;
     border-radius: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white;
+    color: black;
     font-weight: 300;
+    height: 400px;
+    width: 400px;
 }
 /* SIGN UP MODAL  */
 #btn-signup{
@@ -74,11 +76,13 @@ main {
     font-weight: 300;
 }
 #modal-signup{
-    background-image: linear-gradient(to top, rgba(20, 177, 216, 10), rgb(22, 90, 238));
     border-radius: 20px;
+    background-color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white;
+    color: black;
     font-weight: 300;
+    height: 500px;
+    width: 400px;
 }
 /* * MODAL */
 .modal { max-height: 100%; overflow: visible}
@@ -103,4 +107,43 @@ main {
 /* Brandlogo */
 .brand-logo img {
     padding-bottom: 2px;
+}
+/* Navbar design */
+#featuresArrow{
+    position: relative;
+    top: 3.5px;
+    right: 15px;
+}
+#features{
+    height: max-content;
+    width: max-content;
+    background-color: black;
+    
+}
+#modal-features-easytouse{
+    width: fit-content;
+    height: fit-content;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: beige;
+    border-radius: 10px;
+}
+/* Homepage design */
+#tagline{
+    height: auto;
+    width: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: grey lighten-3;
+    text-align: center;
+    font-size: 40px;
+    text-rendering: optimizeSpeed;
+   
+}
+#tagline_2{
+    height: auto;
+    width: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: grey lighten-3;
+    text-align: center;
+    text-rendering: optimizeSpeed;
+    font-size: medium;
 }

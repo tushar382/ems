@@ -13,7 +13,7 @@
     </link>
 </head>
 
-<body class="grey lighten-3">
+<body class="grey lighten-3" onload="eventsList()">
     <!-- NAVBAR -->
     <div class="navbar-fixed">
 
@@ -38,20 +38,20 @@
                     <li class="admin" style="display: none;">
                         <a href="#" class="white-text modal-trigger" data-target="modal-manage">Manage Event</a>
                     </li>
-                    <li class="logged-out" style="display: none;">
+                    <li class="logged-out hoverable" style="display: none;">
                         <a href="#" class="white-text modal-trigger" data-target="modal-login">Login</a>
                     </li>
-                    <li class="logged-out" style="display: none;">
+                    <li class="logged-out hoverable" style="display: none;">
                         <a href="#" class="white-text modal-trigger" data-target="modal-signup">Sign up</a>
                     </li>
-                    <ul id="dropdownFeaturesdesktop" class="dropdown-content">
-                        <li><a href="#!">one</a></li>
+                    <ul id="dropdownFeaturesdesktop" class="dropdown-content" id="features">
+                        <li><a href="#!" class="modal-trigger" data-target="modal-features-easytouse">Easy to Use</a></li>
                         <li><a href="#!">two</a></li>
                         <li><a href="#!">three</a></li>
                     </ul>
-                    <li class="logged-out" style="display: none;"><a class="dropdown-trigger" href="#!"
+                    <li class="logged-out hoverable" style="display: none;"><a class="dropdown-trigger" href="#!" 
                             data-target="dropdownFeaturesdesktop">Features<i
-                                class="material-icons right">arrow_drop_down</i></a>
+                                class="material-icons right" id="featuresArrow">arrow_drop_down</i></a>
                     </li>
 
                     <li class="logged-in" style="display: none;">
@@ -104,14 +104,34 @@
         </span>
     </ul>
 
-    <div class="carousel carousel-slider logged-out useronly">
-        <a class="carousel-item" href="#one!"><img class="responsive-img" src="/img/causorel_1.jpg"></a>
-        <a class="carousel-item" href="#two!"><img class="responsive-img"
-                src="https://source.unsplash.com/1400x350/?nature,water"></a>
-        <a class="carousel-item" href="#three!"><img class="responsive-img"
-                src="https://source.unsplash.com/1400x350/?nature,water"></a>
+    <div class="container logged-out">
+        <div class="container">
+            <p id="tagline">Accomplish more with better events</p><br>
+            <p id="tagline_2">We help you capture ideas and find them fast.</p>
+        </div>
     </div>
 
+    <!--APPLY EVENTS MODAL-->
+    <div id="modal-apply-events" class="modal">
+        <div class="modal-content">
+            <h4>Available events</h4><br />
+            <div class="container" style="margin-top: 40px;">
+                <ul class="collapsible z-depth-0 " style="border: none;">
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!--Features EasyToUse MODAL-->
+    <div id="modal-features-easytouse" class="modal">
+        <div class="modal-content">
+            <h4 style=" margin: 30px;  text-align: center;"><b>Easy to use</b></h4><hr>
+            <div class="container" style="margin-top: 40px;">
+            </div>
+        </div>
+    </div>
+   
 
 
 
@@ -156,22 +176,22 @@
             <h4>Sign up</h4><br />
             <form id="signup-form">
                 <div class="input-field">
-                    <i class="material-icons prefix white-text" style="font-size: 25px">create</i>
+                    <i class="material-icons prefix grey-text" style="font-size: 25px; top: 15px;">create</i>
                     <input type="text" id="signup-name" required />
                     <label for="signup-name">Name</label>
                 </div>
                 <div class="input-field">
-                    <i class="material-icons prefix white-text" style="font-size: 25px">email</i>
+                    <i class="material-icons prefix grey-text" style="font-size: 25px; top: 15px;">email</i>
                     <input type="email" id="signup-email" required />
                     <label for="signup-email">Email address</label>
                 </div>
                 <div class="input-field">
-                    <i class="material-icons prefix white-text" style="font-size: 25px">vpn_key</i>
+                    <i class="material-icons prefix grey-text" style="font-size: 25px; top: 15px;">vpn_key</i>
                     <input type="password" id="signup-password" required />
                     <label for="signup-password">Choose password</label>
                 </div>
                 <div class="input-field">
-                    <i class="material-icons prefix white-text" style="font-size: 25px">person</i>
+                    <i class="material-icons prefix grey-text" style="font-size: 25px; top: 15px;">person</i>
                     <input type="text" id="signup-bio" required />
                     <label for="signup-bio">Bio</label>
                 </div>
@@ -183,19 +203,21 @@
     <!-- LOGIN MODAL -->
     <div id="modal-login" class="modal center-align">
         <div class="modal-content">
-            <h4>Login</h4><br />
+            <h4>Login </h4>
+            
             <form id="login-form">
                 <div class="input-field">
-                    <i class="material-icons prefix white-text" style="font-size: 25px">email</i>
-                    <input type="email" id="login-email" required />
+                    <i class="material-icons prefix grey-text" style="font-size: 25px; top: 15px;">email</i>
+                    <input type="email" id="login-email" style="color: black;" required />
                     <label for="login-email">Email address</label>
                 </div>
                 <div class="input-field">
-                    <i class="material-icons prefix white-text" style="font-size: 25px">vpn_key</i>
+                    <i class="material-icons prefix grey-text" style="font-size: 25px; top: 15px;">vpn_key</i>
                     <input type="password" id="login-password" required />
                     <label for="login-password">Your password</label>
                 </div>
                 <button class="btn blue lighten-1 z-depth-0 center-align" id="btn-login">Login</button>
+                
                 <p class="error pink-text center-align"></p>
             </form>
         </div>
@@ -263,24 +285,6 @@
     </div>
 </div>
 
-<!-- APPLY EVENT MODAL -->
-<div id="modal-apply" class="modal">
-    <div class="modal-content center-align">
-        <form id="apply-form">
-            <div class="input-field">
-                <label for="name" style="font-size: smaller; color: aliceblue;">Full Name</label>
-                <input type="text" id="name" required>
-            </div>
-            <div class="input-field">
-                <label for="Phone" style="font-size: smaller; color: aliceblue;">Phone number</label>
-                <input type="text" id="phone" required>
-            </div>
-            <button class="btn blue lighten-1 z-depth-0 center-align" id="btn-apply-event">Submit</button>
-
-        </form>
-    </div>
-</div>
-
 <!-- CREATE EVENT MODAL -->
 <div id="modal-create" class="modal">
     <div class="modal-content center-align">
@@ -326,9 +330,9 @@
 </div>
 
 <!-- EVENT LIST -->
-<div class="container" style="margin-top: 40px;">
+<div class="container logged-in" style="margin-top: 40px;">
 
-    <ul class="collapsible z-depth-0 events" style="border: none;">
+    <ul class="collapsible z-depth-0 events" id="eventslist" style="border: none;">
         <h4>Availble Events</h4>
     </ul>
 </div>
@@ -369,54 +373,29 @@
 </footer>
 
 
-
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-functions.js"></script>
-
-
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
-
-<script>
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    var firebaseConfig = {
-        apiKey: "AIzaSyAGVDJvncV6sMaNI55zjyT7hnvMwJ2iBcE",
-        authDomain: "event-management-system-a8d99.firebaseapp.com",
-        projectId: "event-management-system-a8d99",
-        appId: "1:498689851436:web:865c6282361285eb8fd189",
-        measurementId: "G-ZBH1Y22WYJ"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
-    // Make auth,functions and firestore references
-    const auth = firebase.auth();
-    const db = firebase.firestore();
-    const functions = firebase.functions();
-    //update firestore settings
-    db.settings({ timestampsInSanpshots: true });
-</script>
-
 <!-- Compiled and minified JavaScript -->
-
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js"></script>
 <script>
     $(document).ready(function () {
         $('.sidenav').sidenav();
     });
 </script>
-
 <script src="scripts/auth.js"></script>
 <script src="scripts/index.js"></script>
+
+
 </body>
 
 </html>

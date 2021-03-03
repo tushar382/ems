@@ -1,22 +1,22 @@
-   const applybtn = document.querySelector('#apply-btn');
-    applybtn.addEventListener('click' , (e) => {
-        e.preventDefault();
-        const applyForm = document.querySelector('#apply-form');
-        applyForm.addEventListener('submit', (e) => {
-            e.preventDefault();
 
-            db.collection('eventResponses').add({
-                name: applyForm['name'].value,
-                phoneno: applyForm['phone'].value
-            }).then(() => {
-                //close the modal and reset form
-                const modal = document.querySelector('#modal-apply');
-                M.Modal.getInstance(modal).close();
-                applyForm.reset();
-            }).catch(err => {
-                console.log(err.message);
-            })
-        });
+   
 
-        console.log('Button Clicked');
-    });  
+// firestore rules 
+// rules_version = '2';
+// service cloud.firestore {
+//   match /databases/{database}/documents {
+//     // match logged in user doc in users collection 
+//     match /users/{userId} {
+//     	// allow create: if request.auth.uid != null
+//     	// allow read: if request.auth.uid == userId;
+//       allow read, write;
+//     }
+    
+//     //match documents in events collection
+//     match /events/{eventId}{
+//     	allow read: if request.auth.uid != null;
+//       allow write: if request.auth.token.admin == true;
+//     }
+   
+//   }
+// }
