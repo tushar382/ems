@@ -26,7 +26,7 @@ const setupUI = (user) => {
                             <img src="/img/user-icon.png" height="100px" width="100px" alt="user"/> <br> 
                             <i class="material-icons prefix white-text">email</i><br>${user.email
           }<br>
-                            <b>${doc.data().name}</b><br>${doc.data().bio
+                            <b>${doc.data().displayName}</b><br>${doc.data().bio
           }<br><i class="material-icons prefix white-text">call</i><br>
                             ${doc.data().phoneno}<br>
                             <div class="red-text">${user.admin ? "Admin" : ""
@@ -49,43 +49,70 @@ const setupUI = (user) => {
     loggedOutLinks.forEach((item) => (item.style.display = "block"));
    }
 };
-//setup the manage-events list
-const manageEvents = (data) => {
-  if (data.length) {
-    let html = "";
-    data.forEach((doc) => {
-      const mevent = doc.data();
+//manage the events
+function manageEventsList(){
+  db.collection("events").onSnapshot(function (snapshot) {
+    document.getElementById("manage-eventslist").innerHTML = `<div>
+    <h5>Manage Events</h5>
+    </div>`;
+    snapshot.forEach(function (eventValue) {
+      document.getElementById("manage-eventslist").innerHTML += `
+      <li>
+          <div class="collapsible-header grey lighten-4">${eventValue.data().title}</div>
+        <div class="collapsible-body white">
+        <button type="submit" class="btn btn-danger" onclick="eventResponses('${eventValue.id}')">
+        <i class="fas fa-trash-alt"></i>Check Responses</button>
+        <button type="submit" class="btn btn-danger" onclick="deleteEvent('${eventValue.id}')">
+        <i class="fas fa-trash-alt"></i>Delete</button>
+        </div>
+      </li><br>`;
 
-      const li = `
-            </br>
-        <li>
-            <div id="div1" class="collapsible-header grey lighten-4">${mevent.title}</div>
-            
-        </li>
-        </hr> `;
-      html += li;
+  });
+  });
+}
+//Event reponses 
+function eventResponses(id){
+  var eventID = id;
+  db.collection("eventResponses").where("eventID", "==", eventID).onSnapshot(function (snapshot) {
+    document.getElementById("manage-eventslist").innerHTML = `
+    <button style="display: inline-block" id="backBtn" class="btn btn-danger">
+        <i class="fas fa-trash-alt"></i>Back</button>`;
+       
+    snapshot.forEach(function (eventValue) {
+      document.getElementById("manage-eventslist").innerHTML += `
+      <li>
+      <div class="collapsible-header grey lighten-4">${eventValue.data().Name}</div>
+      <div class="collapsible-body white">
+      <p>Contact number</p>${eventValue.data().Phone}</br><hr>
+      <p>Email</p>${eventValue.data().email}</br><hr>
+      </li><br>
+      `;
     });
-    manageEventList.innerHTML = html;
-  }
-};
+    document.getElementById("backBtn").addEventListener("click", (e) => {
+      e.preventDefault();
+      manageEventsList();
+    });
+  });
+}
 //setup the events
 function eventsList() {
   db.collection("events").onSnapshot(function (snapshot) {
-    document.getElementById("eventslist").innerHTML = "";
+    document.getElementById("eventslist").innerHTML = `<div>
+    <h4>Available Events</h4>
+    </div>`;
     snapshot.forEach(function (eventValue) {
       document.getElementById("eventslist").innerHTML += `
           <li>
           <div class="collapsible-header grey lighten-4">${eventValue.data().title
         }</div>
-          <div class="collapsible-body white"><p id="title">Description</p>${eventValue.data().desc
+          <div class="collapsible-body white"><p>Description</p>${eventValue.data().desc
         }</br><hr>
           <p>Eligibility</p>${eventValue.data().eligibility}</br><hr>
           <p>Schedule</p>${eventValue.data().schedule}</br><hr>
           <p>Location</p>${eventValue.data().location}</br><hr>
           <p>Payment</p>${eventValue.data().payment}</br>
-          <button type="submit" class="btn btn-danger" onclick="applyEvent('${eventValue.id
-        }')"><i
-          class="fas fa-trash-alt"></i>Apply</button>
+          <button type="submit" class="btn btn-danger" onclick="applyEvent('${eventValue.id}')">
+          <i class="fas fa-trash-alt"></i>Apply</button>
           </div>
           </li><br></hr>`;
     });
@@ -94,7 +121,6 @@ function eventsList() {
 //apply for event
     function applyEvent(id) {
       var user = firebase.auth().currentUser;
-      var email = user.email;
       document.getElementById("eventslist").innerHTML = `
         
             <h4></h4><br />
@@ -127,22 +153,23 @@ function eventsList() {
           id,
           document.getElementById("name").value,
           document.getElementById("phnumber").value,
-          { merge: true }
+          document.getElementById("email").value   
         );
       });
 
-      Name = document.getElementById("name").value;
+      displayName = document.getElementById("name").value;
       phoneno = document.getElementById("phnumber").value;
-      document.getElementById("email").value = email;
+      email = document.getElementById("email").value;
     
-      function updateTask2(id, Name, Phoneno, email) {
+      function updateTask2(id, displayName, Phoneno, email) {
         var taskupdated = {
+          eventID: id,
           uid: user.uid,
-          Name: Name,
+          Name: displayName,
           Phone: Phoneno,
-          Email: email
+          email: email
         };
-        let db = firebase.firestore().collection("eventResponses").doc(id);
+        let db = firebase.firestore().collection("eventResponses").doc();
         db.set(taskupdated).then(() => {
           Swal.fire("Good job!", "Appiled!", "success");
         });
@@ -152,8 +179,21 @@ function eventsList() {
       }
     
     }
+ 
     
-  
+//delete the event 
+function deleteEvent(id) {
+  firebase
+    .firestore()
+    .collection("events")
+    .doc(id)
+    .delete() 
+    .then(() => {
+      Swal.fire("Good job!", "Task Removed!", "success");
+    });
+  document.getElementById("manage-eventslist").innerHTML = "";
+  eventsList();
+} 
 
 
 // setup materialize components

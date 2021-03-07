@@ -39,9 +39,11 @@ auth.onAuthStateChanged((user) => {
     db.collection("events").onSnapshot(
       (snapshot) => {
         eventsList(snapshot.docs);
-        manageEvents(snapshot.docs);
+        manageEventsList(snapshot.docs);
         setupUI(user);
         applyEvent(snapshot.docs);
+        deleteEvent(snapshot.docs); 
+        eventResponses(id);  
       },
       (err) => {
         console.log(err.message);
@@ -51,7 +53,10 @@ auth.onAuthStateChanged((user) => {
     setupUI();
     eventsList([]);
     applyEvent([]);
-    manageEvents([]);
+    manageEventsList([]);
+    deleteEvent([]);
+    eventResponses([]);
+    
   }
 });
 
@@ -84,7 +89,6 @@ createForm.addEventListener("submit", (e) => {
 const manageEvent = document.querySelector("#modal-manage");
 manageEvent.addEventListener("click", (e) => {
   e.preventDefault();
-  console.log("ManageEvent");
 });
 
 //edit profile
@@ -144,7 +148,7 @@ signupForm.addEventListener("submit", (e) => {
       return db.collection("users").doc(cred.user.uid).set(
         {
           bio: signupForm["signup-bio"].value,
-          name: signupForm["signup-name"].value,
+          displayName: signupForm["signup-name"].value,
         },
         { merge: true }
       );
