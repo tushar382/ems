@@ -1,9 +1,4 @@
-
-
-
-
 const eventList = document.querySelector(".events");
-const searchBar = document.querySelector("#searchBar");
 const manageEventList = document.querySelector(".manage-events");
 const loggedOutLinks = document.querySelectorAll(".logged-out");
 const loggedInLinks = document.querySelectorAll(".logged-in");
@@ -39,7 +34,7 @@ const setupUI = (user) => {
     //toggle UI Elements
     loggedInLinks.forEach((item) => (item.style.display = "block"));
     loggedOutLinks.forEach((item) => (item.style.display = "none"));
-   
+
   } else {
     adminItems.forEach((item) => (item.style.display = "none"));
     //hide account info
@@ -47,13 +42,15 @@ const setupUI = (user) => {
     //toggle UI Elements
     loggedInLinks.forEach((item) => (item.style.display = "none"));
     loggedOutLinks.forEach((item) => (item.style.display = "block"));
-   }
+  }
 };
+
 //manage the events
-function manageEventsList(){
+function manageEventsList() {
   db.collection("events").onSnapshot(function (snapshot) {
     document.getElementById("manage-eventslist").innerHTML = `<div>
     <h5>Manage Events</h5>
+    <input type ="text" id="searchMEvents" placeholder="Enter Events title" onkeyup="searchMEvents()">
     </div>`;
     snapshot.forEach(function (eventValue) {
       document.getElementById("manage-eventslist").innerHTML += `
@@ -67,17 +64,36 @@ function manageEventsList(){
         </div>
       </li><br>`;
 
+    });
   });
-  });
+
 }
+//search manage events
+const searchMEvents = () => {
+  let filter = document.getElementById('searchMEvents').value.toUpperCase();
+  let ul = document.getElementById('manage-eventslist');
+  let li = ul.getElementsByTagName('li');
+  for (var i = 0; i < li.length; i++) {
+    let div = li[i].getElementsByTagName('div')[0];
+    let textValue = div.textContent || div.innerHTML;
+    if (textValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = '';
+    } else {
+      li[i].style.display = 'none ';
+    }
+  }
+}
+
 //Event reponses 
-function eventResponses(id){
+function eventResponses(id) {
   var eventID = id;
   db.collection("eventResponses").where("eventID", "==", eventID).onSnapshot(function (snapshot) {
     document.getElementById("manage-eventslist").innerHTML = `
     <button style="display: inline-block" id="backBtn" class="btn btn-danger">
-        <i class="fas fa-trash-alt"></i>Back</button>`;
-       
+        <i class="fas fa-trash-alt"></i>Back</button>
+        <input type ="text" id="searchUser" placeholder="Search by name" onkeyup="searchUser()">
+        `;
+
     snapshot.forEach(function (eventValue) {
       document.getElementById("manage-eventslist").innerHTML += `
       <li>
@@ -94,11 +110,27 @@ function eventResponses(id){
     });
   });
 }
+//search user in check responses section
+const searchUser = () => {
+  let filter = document.getElementById('searchUser').value.toUpperCase();
+  let ul = document.getElementById('manage-eventslist');
+  let li = ul.getElementsByTagName('li');
+  for (var i = 0; i < li.length; i++) {
+    let div = li[i].getElementsByTagName('div')[0];
+    let textValue = div.textContent || div.innerHTML;
+    if (textValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = '';
+    } else {
+      li[i].style.display = 'none ';
+    }
+  }
+}
 //setup the events
 function eventsList() {
   db.collection("events").onSnapshot(function (snapshot) {
     document.getElementById("eventslist").innerHTML = `<div>
     <h4>Available Events</h4>
+    <input type ="text" id="searchHevents" placeholder="Enter Events title" onkeyup="searchHEvents()">
     </div>`;
     snapshot.forEach(function (eventValue) {
       document.getElementById("eventslist").innerHTML += `
@@ -118,10 +150,25 @@ function eventsList() {
     });
   });
 }
+//search events in home page
+const searchHEvents = () => {
+  let filter = document.getElementById('searchHevents').value.toUpperCase();
+  let ul = document.getElementById('eventslist');
+  let li = ul.getElementsByTagName('li');
+  for (var i = 0; i < li.length; i++) {
+    let div = li[i].getElementsByTagName('div')[0];
+    let textValue = div.textContent || div.innerHTML;
+    if (textValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = '';
+    } else {
+      li[i].style.display = 'none ';
+    }
+  }
+}
 //apply for event
-    function applyEvent(id) {
-      var user = firebase.auth().currentUser;
-      document.getElementById("eventslist").innerHTML = `
+function applyEvent(id) {
+  var user = firebase.auth().currentUser;
+  document.getElementById("eventslist").innerHTML = `
         
             <h4></h4><br />
               <form class="border p-4 mb-4" id="applyform">
@@ -141,61 +188,55 @@ function eventsList() {
                 <button style="display: inline-block" id="apply-cancelBtn" class="btn btn-danger"><i class="fas fa-ban"></i>Cancel</button>
               </form> ;
          `;
-      document.getElementById("apply-cancelBtn").addEventListener("click", (e) => {
-        e.preventDefault();
-        eventsList();
-      });
-      document.getElementById("applyform").addEventListener("submit", (e) => {
-        e.preventDefault();
-      });
-      document.getElementById("submitBtn").addEventListener("click", (e) => {
-        updateTask2(
-          id,
-          document.getElementById("name").value,
-          document.getElementById("phnumber").value,
-          document.getElementById("email").value   
-        );
-      });
+  document.getElementById("apply-cancelBtn").addEventListener("click", (e) => {
+    e.preventDefault();
+    eventsList();
+  });
+  document.getElementById("applyform").addEventListener("submit", (e) => {
+    e.preventDefault();
+  });
+  document.getElementById("submitBtn").addEventListener("click", (e) => {
+    updateTask2(
+      id,
+      document.getElementById("name").value,
+      document.getElementById("phnumber").value,
+      document.getElementById("email").value
+    );
+  });
 
-      displayName = document.getElementById("name").value;
-      phoneno = document.getElementById("phnumber").value;
-      email = document.getElementById("email").value;
-    
-      function updateTask2(id, displayName, Phoneno, email) {
-        var taskupdated = {
-          eventID: id,
-          uid: user.uid,
-          Name: displayName,
-          Phone: Phoneno,
-          email: email
-        };
-        let db = firebase.firestore().collection("eventResponses").doc();
-        db.set(taskupdated).then(() => {
-          Swal.fire("Good job!", "Appiled!", "success");
-        });
-    
-        document.getElementById("eventslist").innerHTML = "";
-        eventsList();
-      }
-    
-    }
- 
-    
+  displayName = document.getElementById("name").value;
+  phoneno = document.getElementById("phnumber").value;
+  email = document.getElementById("email").value;
+
+  function updateTask2(id, displayName, Phoneno, email) {
+    var taskupdated = {
+      eventID: id,
+      uid: user.uid,
+      Name: displayName,
+      Phone: Phoneno,
+      email: email
+    };
+    let db = firebase.firestore().collection("eventResponses").doc();
+    db.set(taskupdated).then(() => {
+      Swal.fire("Good job!", "Appiled!", "success");
+    });
+    document.getElementById("eventslist").innerHTML = "";
+    eventsList();
+  }
+}
 //delete the event 
 function deleteEvent(id) {
   firebase
     .firestore()
     .collection("events")
     .doc(id)
-    .delete() 
+    .delete()
     .then(() => {
       Swal.fire("Good job!", "Task Removed!", "success");
     });
   document.getElementById("manage-eventslist").innerHTML = "";
   eventsList();
-} 
-
-
+}
 // setup materialize components
 document.addEventListener("DOMContentLoaded", function () {
   var modals = document.querySelectorAll(".modal");

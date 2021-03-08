@@ -39,11 +39,13 @@ auth.onAuthStateChanged((user) => {
     db.collection("events").onSnapshot(
       (snapshot) => {
         eventsList(snapshot.docs);
+        myEventsList(snapshot.docs); 
         manageEventsList(snapshot.docs);
         setupUI(user);
         applyEvent(snapshot.docs);
         deleteEvent(snapshot.docs); 
-        eventResponses(id);  
+        eventResponses(id);
+        
       },
       (err) => {
         console.log(err.message);
@@ -56,6 +58,7 @@ auth.onAuthStateChanged((user) => {
     manageEventsList([]);
     deleteEvent([]);
     eventResponses([]);
+    myEventsList([]);
     
   }
 });
