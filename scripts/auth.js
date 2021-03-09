@@ -38,10 +38,10 @@ auth.onAuthStateChanged((user) => {
     //get data
     db.collection("events").onSnapshot(
       (snapshot) => {
+        setupUI(user);
         eventsList(snapshot.docs);
         myEventsList(snapshot.docs); 
         manageEventsList(snapshot.docs);
-        setupUI(user);
         applyEvent(snapshot.docs);
         deleteEvent(snapshot.docs); 
         eventResponses(id);
