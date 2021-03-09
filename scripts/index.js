@@ -18,7 +18,7 @@ const setupUI = (user) => {
       .get()
       .then((doc) => {
         const html = `<div class="modal-content">
-                            <img src="/img/user-icon.png" height="100px" width="100px" alt="user"/> <br> 
+                            <img src="user-icon.png" height="100px" width="100px" alt="user"/> <br> 
                             <i class="material-icons prefix white-text">email</i><br>${user.email
           }<br>
                             <b>${doc.data().displayName}</b><br>${doc.data().bio
