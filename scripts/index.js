@@ -18,11 +18,11 @@ const setupUI = (user) => {
       .get()
       .then((doc) => {
         const html = `<div class="modal-content">
-                            <img src="user-icon.png" height="100px" width="100px" alt="user"/> <br> 
-                            <i class="material-icons prefix white-text">email</i><br>${user.email
+                            <img src="user-icon.png" height="100px" width="100px" alt="user" /> <br> 
+                            <i class="material-icons prefix grey-text">email</i><br>${user.email
           }<br>
                             <b>${doc.data().displayName}</b><br>${doc.data().bio
-          }<br><i class="material-icons prefix white-text">call</i><br>
+          }<br><i class="material-icons prefix grey-text">call</i><br>
                             ${doc.data().phoneno}<br>
                             <div class="red-text">${user.admin ? "Admin" : ""
           }</div>
@@ -68,21 +68,7 @@ function manageEventsList() {
   });
 
 }
-//search manage events
-const searchMEvents = () => {
-  let filter = document.getElementById('searchMEvents').value.toUpperCase();
-  let ul = document.getElementById('manage-eventslist');
-  let li = ul.getElementsByTagName('li');
-  for (var i = 0; i < li.length; i++) {
-    let div = li[i].getElementsByTagName('div')[0];
-    let textValue = div.textContent || div.innerHTML;
-    if (textValue.toUpperCase().indexOf(filter) > -1) {
-      li[i].style.display = '';
-    } else {
-      li[i].style.display = 'none ';
-    }
-  }
-}
+
 
 //Event reponses 
 function eventResponses(id) {
@@ -110,24 +96,10 @@ function eventResponses(id) {
     });
   });
 }
-//search user in check responses section
-const searchUser = () => {
-  let filter = document.getElementById('searchUser').value.toUpperCase();
-  let ul = document.getElementById('manage-eventslist');
-  let li = ul.getElementsByTagName('li');
-  for (var i = 0; i < li.length; i++) {
-    let div = li[i].getElementsByTagName('div')[0];
-    let textValue = div.textContent || div.innerHTML;
-    if (textValue.toUpperCase().indexOf(filter) > -1) {
-      li[i].style.display = '';
-    } else {
-      li[i].style.display = 'none ';
-    }
-  }
-}
+
 //setup the events
 function eventsList() {
-  db.collection("events").onSnapshot(function (snapshot) {
+  db.collection("events").orderBy("payment", "desc").onSnapshot(function (snapshot) {
     document.getElementById("eventslist").innerHTML = `<div>
     <h4>Available Events</h4>
     <input type ="text" id="searchHevents" placeholder="Enter Events title" onkeyup="searchHEvents()">
@@ -137,7 +109,7 @@ function eventsList() {
           <li>
           <div class="collapsible-header grey lighten-4">${eventValue.data().title
         }</div>
-          <div class="collapsible-body white"><p>Description</p>${eventValue.data().desc
+          <div class="collapsible-body white"><p>Description</p>${eventValue.data().description
         }</br><hr>
           <p>Eligibility</p>${eventValue.data().eligibility}</br><hr>
           <p>Schedule</p>${eventValue.data().schedule}</br><hr>
@@ -150,21 +122,7 @@ function eventsList() {
     });
   });
 }
-//search events in home page
-const searchHEvents = () => {
-  let filter = document.getElementById('searchHevents').value.toUpperCase();
-  let ul = document.getElementById('eventslist');
-  let li = ul.getElementsByTagName('li');
-  for (var i = 0; i < li.length; i++) {
-    let div = li[i].getElementsByTagName('div')[0];
-    let textValue = div.textContent || div.innerHTML;
-    if (textValue.toUpperCase().indexOf(filter) > -1) {
-      li[i].style.display = '';
-    } else {
-      li[i].style.display = 'none ';
-    }
-  }
-}
+
 //apply for event
 function applyEvent(id) {
   var user = firebase.auth().currentUser;
@@ -220,6 +178,7 @@ function applyEvent(id) {
     db.set(taskupdated).then(() => {
       Swal.fire("Good job!", "Appiled!", "success");
     });
+    
     document.getElementById("eventslist").innerHTML = "";
     eventsList();
   }

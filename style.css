@@ -1,45 +1,41 @@
 
 /*ACCOUNT DETAILS MODAL */
-#modal-account{
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: fit-content;
+    margin: auto;
     text-align: center;
     overflow: hidden;
-    border-radius: 20px;
-    background-size: auto;
-    background-image: linear-gradient(to top, rgba(20, 177, 216, 10), rgb(22, 90, 238));
-    
-}
-#modal-edit-profile{
-    border-radius: 20px;
-    background-image: linear-gradient(to top, rgba(20, 177, 216, 10), rgb(22, 90, 238));
-    
-}
-#profile-heading{
-    border-radius: 18px;
-    font-size: x-large;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color:#eeeeee;
+  }
+.pbtn {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
     color: white;
-    font-weight: 300;
-}
-#edit-profile-heading{
-    border-radius: 20px;
-    font-size: x-large;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white;
-    font-weight: 300;
+    background-color: #000;
     text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 10px;
+  }
+.pbtn:hover, h4:hover, .material-icons:hover {
+    opacity: 0.7;
 }
-#btn-edit-profile{
-    border-radius: 20px;
+.pheading{
+    color: #000;
+    font-size: 28px;
 }
-#btn-update-profile{
-    border-radius: 20px;
+/*EDIT PROFILE MODAL */
+.text{
+    font-size: smaller;
+    color: #000;
+
 }
-#btn-cancel-update-profile{
-    border-radius: 20px;
-}
-#btn-cancel-view-profile{
-    border-radius: 20px;
-}
+
+
+
 /*  TO STICK FOOTER */
 body {
     display: flex;

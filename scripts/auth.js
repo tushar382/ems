@@ -40,7 +40,6 @@ auth.onAuthStateChanged((user) => {
       (snapshot) => {
         setupUI(user);
         eventsList(snapshot.docs);
-        myEventsList(snapshot.docs); 
         manageEventsList(snapshot.docs);
         applyEvent(snapshot.docs);
         deleteEvent(snapshot.docs); 
@@ -58,7 +57,7 @@ auth.onAuthStateChanged((user) => {
     manageEventsList([]);
     deleteEvent([]);
     eventResponses([]);
-    myEventsList([]);
+  
     
   }
 });
@@ -71,11 +70,11 @@ createForm.addEventListener("submit", (e) => {
   db.collection("events")
     .add({
       title: createForm["title"].value,
-      desc: createForm["desc"].value,
+      description: createForm["desc"].value,
       eligibility: createForm["eligibilty"].value,
       schedule: createForm["schedule"].value,
       location: createForm["location"].value,
-      payment: createForm["payment"].value,
+      payment: createForm[("payment")].value,
     })
     .then(() => {
       //close the modal and reset form
