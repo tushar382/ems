@@ -41,11 +41,12 @@ auth.onAuthStateChanged((user) => {
         setupUI(user);
         eventsList(snapshot.docs);
         manageEventsList(snapshot.docs);
+        sortLTH(snapshot.docs);
+        sortHTL(snapshot.docs);
         applyEvent(snapshot.docs);
         deleteEvent(snapshot.docs); 
         eventResponses(id);
-        sortLTH(snapshot.docs);
-        sortHTL(snapshot.docs);
+        
         
       },
       (err) => {
