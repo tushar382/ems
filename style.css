@@ -1,4 +1,43 @@
 
+/*Buttons*/
+.dbtn {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color:white;
+  background-color: red;
+  text-align: center;
+  cursor: pointer;
+  width: 50%;
+  font-size: 10px;
+}
+.sbtn {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color:white;
+  background-color: green;
+  text-align: center;
+  cursor: pointer;
+  width: 50%;
+  font-size: 10px;
+}
+.nbtn {
+  
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color:white;
+  background-color: black;
+  text-align: center;
+  cursor: pointer;
+  width: 50%;
+  font-size: 10px;
+}
+
 /*ACCOUNT DETAILS MODAL */
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -20,18 +59,34 @@
     width: 100%;
     font-size: 10px;
   }
-.pbtn:hover, h4:hover, .material-icons:hover {
+.pbtn:hover, h4:hover, .material-icons:hover, .dbtn:hover, .sbtn:hover {
     opacity: 0.7;
 }
 .pheading{
     color: #000;
     font-size: 28px;
 }
+
+/*MANAGE EVENTS MODAL */
+.mbtn {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 50%;
+  font-size: 10px;
+  
+}
+
+
 /*EDIT PROFILE MODAL */
 .text{
     font-size: smaller;
     color: #000;
-
 }
 
 
@@ -84,7 +139,7 @@ main {
 .modal { max-height: 100%; overflow: visible}
 /* CREATE EVENT MODAL*/
 #modal-create{
-    background-image: linear-gradient(to top, rgba(20, 177, 216, 10), rgb(22, 90, 238));
+    background-color: #eee;
     border-radius: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     
@@ -93,7 +148,7 @@ main {
 #create-event-heading{
     font-size: x-large;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white;
+    color: black;
     font-weight: 300;
     text-align: center;
 }

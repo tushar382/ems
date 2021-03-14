@@ -44,29 +44,96 @@ const setupUI = (user) => {
     loggedOutLinks.forEach((item) => (item.style.display = "block"));
   }
 };
+//sort events 
+function sortEvents(){
 
+}
 //manage the events
 function manageEventsList() {
   db.collection("events").onSnapshot(function (snapshot) {
     document.getElementById("manage-eventslist").innerHTML = `<div>
-    <h5>Manage Events</h5>
+   
     <input type ="text" id="searchMEvents" placeholder="Enter Events title" onkeyup="searchMEvents()">
-    </div>`;
+    <a  class='dropdown-trigger nbtn' href='#' data-target='sortBy'>Sort by</a>
+    <!-- Dropdown Structure -->
+    <ul id='sortBy' class="dropdown-content">
+    <li><a style="font-size: 10px; color: #000;" id="lowToHigh" >Payment: Low to High</a></li>
+    <li><a style="font-size: 10px; color: #000;" id="highToLow" >Payment: High to Low</a></li>
+    </ul>
+
+    
+       </div>`;
     snapshot.forEach(function (eventValue) {
       document.getElementById("manage-eventslist").innerHTML += `
       <li>
           <div class="collapsible-header grey lighten-4">${eventValue.data().title}</div>
         <div class="collapsible-body white">
-        <button type="submit" class="btn btn-danger" onclick="eventResponses('${eventValue.id}')">
-        <i class="fas fa-trash-alt"></i>Check Responses</button>
-        <button type="submit" class="btn btn-danger" onclick="deleteEvent('${eventValue.id}')">
+        <button type="submit" class="sbtn" onclick="eventResponses('${eventValue.id}')">
+        <i class="fas fa-trash-alt"></i>Check Responses</button></br></br>
+        <button type="submit" class="dbtn" onclick="deleteEvent('${eventValue.id}')">
         <i class="fas fa-trash-alt"></i>Delete</button>
+        
         </div>
       </li><br>`;
 
     });
+    $('.dropdown-trigger').dropdown();
+    document.getElementById("lowToHigh").addEventListener("click", (e) => {
+      e.preventDefault();
+      console.log("low to high");
+      db.collection("events").orderBy("payment").onSnapshot(function (snapshot) {
+          document.getElementById("manage-eventslist").innerHTML =`<div>
+     
+          <input type ="text" id="searchMEvents_LTH" placeholder="Enter Events title" onkeyup="searchMEvents_LTH()">
+          
+             </div>`;
+          snapshot.forEach(function (eventValue) {
+            document.getElementById("manage-eventslist").innerHTML += `
+            <li>
+                <div class="collapsible-header grey lighten-4">${eventValue.data().title}</div>
+              <div class="collapsible-body white">
+              <button type="submit" class="sbtn" onclick="eventResponses('${eventValue.id}')">
+              <i class="fas fa-trash-alt"></i>Check Responses</button></br></br>
+              <button type="submit" class="dbtn" onclick="deleteEvent('${eventValue.id}')">
+              <i class="fas fa-trash-alt"></i>Delete</button>
+              
+              </div>
+            </li><br>`;
+          });
+        });
+    });
+    
+  document.getElementById("highToLow").addEventListener("click", (e) => {
+    e.preventDefault();
+    console.log("high to low");
+    db.collection("events").orderBy("payment", "desc").onSnapshot(function (snapshot) {
+        document.getElementById("manage-eventslist").innerHTML =`<div>
+   
+        <input type ="text" id="searchMEvents_HTL" placeholder="Enter Events title" onkeyup="searchMEvents_HTL()">
+        
+           </div>`;
+        snapshot.forEach(function (eventValue) {
+          document.getElementById("manage-eventslist").innerHTML += `
+          <li>
+              <div class="collapsible-header grey lighten-4">${eventValue.data().title}</div>
+            <div class="collapsible-body white">
+            <button type="submit" class="sbtn" onclick="eventResponses('${eventValue.id}')">
+            <i class="fas fa-trash-alt"></i>Check Responses</button></br></br>
+            <button type="submit" class="dbtn" onclick="deleteEvent('${eventValue.id}')">
+            <i class="fas fa-trash-alt"></i>Delete</button>
+            
+            </div>
+          </li><br>`;
+        });
+      });  
   });
+    
 
+  
+
+    
+  });
+  
 }
 
 
@@ -75,13 +142,18 @@ function eventResponses(id) {
   var eventID = id;
   db.collection("eventResponses").where("eventID", "==", eventID).onSnapshot(function (snapshot) {
     document.getElementById("manage-eventslist").innerHTML = `
-    <button style="display: inline-block" id="backBtn" class="btn btn-danger">
-        <i class="fas fa-trash-alt"></i>Back</button>
+    <button style="display: inline-block; width: 10%;" id="backBtn" class="nbtn" >
+    <i class="fas fa-trash-alt"></i>&#x2716</button></br></br>
+   
         <input type ="text" id="searchUser" placeholder="Search by name" onkeyup="searchUser()">
-        `;
+        <p><b>Applicants</b></p></br>
+        
+   
+    `;
 
     snapshot.forEach(function (eventValue) {
       document.getElementById("manage-eventslist").innerHTML += `
+    
       <li>
       <div class="collapsible-header grey lighten-4">${eventValue.data().Name}</div>
       <div class="collapsible-body white">
