@@ -32,7 +32,7 @@ const searchUser = () => {
 const searchMEvents = () => {
     let filter = document.getElementById("searchMEvents").value.toUpperCase();
     let ul = document.getElementById("manage-eventslist");
-    let li = ul.getElementsByTagName("li");
+    let li = ul.getElementsByClassName("list")
     for (var i = 0; i < li.length; i++) {
         let div = li[i].getElementsByTagName("div")[0];
         let textValue = div.textContent || div.innerHTML;

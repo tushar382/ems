@@ -44,6 +44,8 @@ auth.onAuthStateChanged((user) => {
         applyEvent(snapshot.docs);
         deleteEvent(snapshot.docs); 
         eventResponses(id);
+        sortLTH(snapshot.docs);
+        sortHTL(snapshot.docs);
         
       },
       (err) => {
@@ -57,6 +59,9 @@ auth.onAuthStateChanged((user) => {
     manageEventsList([]);
     deleteEvent([]);
     eventResponses([]);
+    sortLTH([]);
+    sortHTL([]);
+
   
     
   }

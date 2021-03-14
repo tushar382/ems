@@ -249,43 +249,43 @@
 <!-- CREATE EVENT MODAL -->
 <div id="modal-create" class="modal">
     <div class="modal-content center-align">
-        <h4 id="create-event-heading">Create Event</h4><br />
+        <h4 class="pheading">Create Event</h4><br />
         <form id="create-form">
             <div class="input-field">
-                <i class="material-icons prefix grey-text">title</i>
-                <label for="title" style="font-size: smaller; color: black;">Event Title</label>
+                <i class="material-icons prefix black-text">title</i>
+                <label for="title" class="text">Event Title</label>
                 <input type="text" id="title" required>
 
             </div>
             <div class="input-field">
-                <i class="material-icons prefix grey-text">description</i>
-                <label for="desc" style="font-size: smaller; color: black;">Description</label>
+                <i class="material-icons prefix yellow-text">description</i>
+                <label for="desc"class="text">Description</label>
                 <input type="text" id="desc" required>
 
             </div>
             <div class="input-field">
-                <i class="material-icons prefix grey-text">bookmark</i>
-                <label for="eligibilty" style="font-size: smaller; color: black;">Eligibilty</label>
+                <i class="material-icons prefix brown-text">bookmark</i>
+                <label for="eligibilty" class="text">Eligibilty</label>
                 <input type="text" id="eligibilty" required>
 
             </div>
             <div class="input-field">
-                <i class="material-icons prefix grey-text">schedule</i>
+                <i class="material-icons prefix red-text">schedule</i>
                 <input type="datetime" class="datepicker" id="schedule" placeholder="schedule" required>
-                <label for="schedule" style="font-size: smaller; color: black;"></label>
+                <label for="schedule" class="text"></label>
             </div>
             <div class="input-field">
-                <i class="material-icons prefix grey-text">location_on</i>
+                <i class="material-icons prefix blue-text">location_on</i>
                 <input type="text" id="location" required>
-                <label for="location" style="font-size: smaller; color:black;">Location</label>
+                <label for="location" class="text">Location</label>
             </div>
             <div class="input-field">
-                <i class="material-icons prefix white-text">attach_money</i>
+                <i class="material-icons prefix green-text">attach_money</i>
                 <input type="number" id="payment" required>
-                <label for="payment" style="font-size: smaller; color: black;">Payment</label>
+                <label for="payment" class="text">Payment</label>
             </div>
 
-            <button class="btn blue lighten-1 z-depth-0 center-align" id="btn-create-event">Create</button>
+            <button class="sbtn" >Create</button>
         </form>
     </div>
 </div>
@@ -383,7 +383,7 @@
 <script src="scripts/auth.js"></script>
 <script src="scripts/index.js"></script>
 <script src="scripts/searchBar.js"></script>
-<script src="/scripts/sortby.js"></script>
+<script src="/scripts/manageEvents.js"></script>
 
 </body>
 
