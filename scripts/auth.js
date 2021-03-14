@@ -72,7 +72,8 @@ auth.onAuthStateChanged((user) => {
 const createForm = document.querySelector("#create-form");
 createForm.addEventListener("submit", (e) => {
   e.preventDefault();
-
+  var a = createForm[("payment")].value;
+  var payment = parseInt(a);
   db.collection("events")
     .add({
       title: createForm["title"].value,
@@ -80,7 +81,7 @@ createForm.addEventListener("submit", (e) => {
       eligibility: createForm["eligibilty"].value,
       schedule: createForm["schedule"].value,
       location: createForm["location"].value,
-      payment: createForm[("payment")].value,
+      payment: payment,
     })
     .then(() => {
       //close the modal and reset form
@@ -93,46 +94,6 @@ createForm.addEventListener("submit", (e) => {
     });
 });
 
-//manage event
-const manageEvent = document.querySelector("#modal-manage");
-manageEvent.addEventListener("click", (e) => {
-  e.preventDefault();
-});
-
-//edit profile
-const editProfile = document.querySelector("#edit-profile-form");
-editProfile.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  const user = auth.currentUser;
-
-  return db
-    .collection("users")
-    .doc(user.uid)
-    .set(
-      {
-        phoneno: editProfile["add-phone-no"].value,
-        gender: editProfile["gender"].value,
-        age: editProfile["add-age"].value,
-      },
-      { merge: true }
-    )
-    .then(() => {
-      const modal = document.querySelector("#modal-edit-profile");
-      M.Modal.getInstance(modal).close();
-      editProfile.reset();
-      signupForm.querySelector(".error").innerHTML = "";
-    })
-    .catch((err) => {
-      signupForm.querySelector(".error").innerHTML = err.message;
-    });
-});
-const cancelEditProfile = document.querySelector("#btn-cancel-update-profile");
-cancelEditProfile.addEventListener("click", (e) => {
-  e.preventDefault();
-  const modal = document.querySelector("#modal-edit-profile");
-  M.Modal.getInstance(modal).close();
-});
 
 
 //signup

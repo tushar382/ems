@@ -171,7 +171,7 @@ function deleteEvent(id) {
     .doc(id)
     .delete()
     .then(() => {
-      Swal.fire("Good job!", "Task Removed!", "success");
+      Swal.fire("Good job!", "Event Deleted!", "success");
     });
   document.getElementById("manage-eventslist").innerHTML = "";
   eventsList();
