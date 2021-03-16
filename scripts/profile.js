@@ -48,6 +48,12 @@ function editProfile(){
                 <input class="text" type="text" id="update_skills">
                 <label for="update_skills">Skills</label>
                 </div>
+                <div>
+                <i class="material-icons prefix black-text">face</i>
+                <img src="" id="profile_pic" alt="Profile Image" style="border:2px solid black; width="200px"; height="200px"; ">
+                <button class="nbtn" style="width: 50px; " id="select">Select</button>
+        
+                </div>
                 <div style="text-align: center;">
                 <button type="submit" class="sbtn" style="width: 50px;" id="btn-update-profile"><i
                         class="material-icons">check</i>Update</button>
@@ -75,11 +81,44 @@ function editProfile(){
       }).catch((error) => {
       console.log("Error getting document:", error);
   });
+  var ImgName, ImgUrl;
+  var files = [];
+  var reader;
+  
+  document.getElementById("select").onclick = function (e){
+    var input = document.createElement('input');
+    input.type = 'file';
+  
+
+    input.onchange = e => {
+        files  = e.target.files;
+        reader = new FileReader();
+        reader.onload = function(){
+            document.getElementById("profile_pic").src = reader.result;
+
+        }
+        reader.readAsDataURL(files[0]);
+    }
+    input.click();
+}
   
     document.getElementById("btn-update-profile").addEventListener('click',(e)=> {
       e.preventDefault();
       const user = auth.currentUser;
       var phoneno, age, height,bio,workExp,skills,dispName;
+      var ImgName = user.uid;
+      var uploadTask = firebase.storage().ref('images/'+ImgName+".png").put(files[0]);
+        uploadTask.snapshot.ref.getDownloadURL().then(function(url){
+            ImgUrl = url;
+    
+        db.collection("Pictures").add({
+            Name: ImgName,
+            Link: ImgUrl
+        });
+        
+    }
+    );
+
       phoneno = document.getElementById("update_phno").value;
       age =  document.getElementById("update_age").value;
       height =  document.getElementById("update_height").value;
@@ -90,6 +129,7 @@ function editProfile(){
       phoneno = parseInt(phoneno);
       age = parseInt(age);
       height = parseInt(height);
+     
       return db
           .collection("users")
           .doc(user.uid)
@@ -123,38 +163,3 @@ function editProfile(){
 })
 }
 
-
-// //edit profile
-// const editProfile = document.querySelector("#edit-profile-form");
-// editProfile.addEventListener("submit", (e) => {
-//   e.preventDefault();
-
-//   const user = auth.currentUser;
-
-//   return db
-//     .collection("users")
-//     .doc(user.uid)
-//     .set(
-//       {
-//         phoneno: editProfile["add-phone-no"].value,
-//         gender: editProfile["gender"].value,
-//         age: editProfile["add-age"].value,
-//       },
-//       { merge: true }
-//     )
-//     .then(() => {
-//       const modal = document.querySelector("#modal-edit-profile");
-//       M.Modal.getInstance(modal).close();
-//       editProfile.reset();
-//       signupForm.querySelector(".error").innerHTML = "";
-//     })
-//     .catch((err) => {
-//       signupForm.querySelector(".error").innerHTML = err.message;
-//     });
-// });
-// const cancelEditProfile = document.querySelector("#btn-cancel-update-profile");
-// cancelEditProfile.addEventListener("click", (e) => {
-//   e.preventDefault();
-//   const modal = document.querySelector("#modal-edit-profile");
-//   M.Modal.getInstance(modal).close();
-// })

@@ -13,12 +13,13 @@ const setupUI = (user) => {
       adminItems.forEach((item) => (item.style.display = "block"));
     }
     //account info
+    const ImgName = user.uid; 
     db.collection("users")
       .doc(user.uid)
       .get()
       .then((doc) => {
         const html = `<div class="modal-content">
-                            <img src="user-icon.png" height="100px" width="100px" alt="user" /> <br> 
+                            <img src="user-icon.png" id="profile_pic" height="100px" width="100px" alt="user" /> <br> 
                             <i class="material-icons prefix grey-text">email</i><br>${user.email
           }<br>
                             <b>${doc.data().displayName}</b><br>${doc.data().bio
@@ -26,10 +27,20 @@ const setupUI = (user) => {
                             ${doc.data().phoneno}<br>
                             <div class="red-text">${user.admin ? "Admin" : ""
           }</div>
-                        </div>`;
-
+                        </div>
+                       
+                        
+                        `;
+                    
         accountDetails.innerHTML = html;
-      });
+      },
+
+    
+    );
+    
+
+  
+   
 
     //toggle UI Elements
     loggedInLinks.forEach((item) => (item.style.display = "block"));

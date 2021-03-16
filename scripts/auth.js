@@ -4,6 +4,7 @@
       apiKey: "AIzaSyAGVDJvncV6sMaNI55zjyT7hnvMwJ2iBcE",
       authDomain: "event-management-system-a8d99.firebaseapp.com",
       projectId: "event-management-system-a8d99",
+      storageBucket: "event-management-system-a8d99.appspot.com",
       appId: "1:498689851436:web:865c6282361285eb8fd189",
       measurementId: "G-ZBH1Y22WYJ"
   };
