@@ -86,6 +86,7 @@ function editProfile(){
   var reader;
   
   document.getElementById("select").onclick = function (e){
+    e.preventDefault();
     var input = document.createElement('input');
     input.type = 'file';
   
