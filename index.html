@@ -193,58 +193,17 @@
         <div class="modal-content  center-align">
             <h4 class="pheading">Profile</h4><br />
             <div class="account-details" style="max-height: fit-content;"></div>
-            <button class="modal-trigger pbtn"
-                data-target="modal-edit-profile" id="btn-edit-profile"><i class="material-icons">edit</i></button></br>
+            <button class="pbtn" onclick="editProfile()" id="btn-edit-profile"><i class="material-icons">edit</i></button></br>
         </div>
     </div>
-</body>
-
-<!--EDIT PROFILE-->
-<div id="modal-edit-profile" class="modal card" style="max-width: fit-content;">
-    <div class="modal-content center-align ">
-        <h4 class="pheading">Edit Profile</h4><br /></hr>
-    
-            <form id="edit-profile-form">
-                <div class="input-field">
-                    <i class="material-icons prefix">call</i>
-                    <input class="text" type="number" id="add-phone-no" required>
-                    <label for="add-phone-no">Add Phone Number</label>
-                </div>
-                <div>
-                    <label class="text">Add Gender</label>
-                    <p>
-                        <label class="text">
-                            <input name="group1" type="radio" id="gender" value="male" checked />
-                            <span>Male</span>
-                        </label>
-                    </p>
-                    <p>
-                        <label class="text">
-                            <input name="group1" type="radio" value="female" id="gender" />
-                            <span>Female</span>
-                        </label>
-                    </p>
-                    <p>
-                        <label class="text">
-                            <input class="with-gap" name="group1" value="other" type="radio" id="gender" />
-                            <span>Other</span>
-                        </label>
-                    </p>
-                </div><br>
-                <div class="input-field">
-                    <input type="number" id="add-age" required>
-                    <label class="text" for="add-age">Add Age</label>
-                </div>
-                <button class="btn-floating btn-small waves-effect waves-light green" id="btn-update-profile"><i
-                        class="material-icons">check</i>Update</button>
-                <button class="btn-floating btn-small waves-effect waves-light red" id="btn-cancel-update-profile"><i
-                        class="material-icons">clear</i>Cancel</button>
-                <p class="error pink-text center-align"></p>
-
-            </form>
-       
+    <!-- EDIT PROFILE -->
+    <div class="container logged-in" style="margin-top: 40px; display: none;" >
+        <form id="editProfile" style="margin-top: 40px;">
+            
+        </form>
     </div>
-</div>
+
+
 
 <!-- CREATE EVENT MODAL -->
 <div id="modal-create" class="modal">

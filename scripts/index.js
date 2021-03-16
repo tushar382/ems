@@ -79,7 +79,8 @@ function eventResponses(id) {
 
 //setup the events
 function eventsList() {
-  db.collection("events").orderBy("payment", "desc").onSnapshot(function (snapshot) {
+  
+  db.collection("events").orderBy("payment").onSnapshot(function (snapshot) {
     document.getElementById("eventslist").innerHTML = `<div>
     <h4>Available Events</h4>
     <input type ="text" id="searchHevents" placeholder="Enter Events title" onkeyup="searchHEvents()">

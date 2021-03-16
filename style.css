@@ -88,6 +88,9 @@
     font-size: small;
     color: #000;
 }
+#edit-profile-form{
+  width: max-content;
+}
 
 
 

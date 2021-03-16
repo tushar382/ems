@@ -41,6 +41,7 @@ auth.onAuthStateChanged((user) => {
         setupUI(user);
         eventsList(snapshot.docs);
         manageEventsList(snapshot.docs);
+        
         sortLTH(snapshot.docs);
         sortHTL(snapshot.docs);
         applyEvent(snapshot.docs);
@@ -58,6 +59,7 @@ auth.onAuthStateChanged((user) => {
     eventsList([]);
     applyEvent([]);
     manageEventsList([]);
+    
     deleteEvent([]);
     eventResponses([]);
     sortLTH([]);
@@ -72,8 +74,9 @@ auth.onAuthStateChanged((user) => {
 const createForm = document.querySelector("#create-form");
 createForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  var a = createForm[("payment")].value;
-  var payment = parseInt(a);
+  var payment = createForm[("payment")].value;
+  payment = parseInt(payment);
+  
   db.collection("events")
     .add({
       title: createForm["title"].value,
