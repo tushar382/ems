@@ -108,14 +108,16 @@ function editProfile(){
       const user = auth.currentUser;
       var phoneno, age, height,bio,workExp,skills,dispName;
       var ImgName = user.uid;
+     // var id = user.uid;
       var uploadTask = firebase.storage().ref('images/'+ImgName+".png").put(files[0]);
         uploadTask.snapshot.ref.getDownloadURL().then(function(url){
             ImgUrl = url;
     
-        db.collection("Pictures").add({
+        db.collection("users").doc(user.uid).set({
             Name: ImgName,
             Link: ImgUrl
-        });
+        },{merge: true});
+        
         
     }
     );
