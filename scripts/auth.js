@@ -45,7 +45,7 @@ auth.onAuthStateChanged((user) => {
         
         sortLTH(snapshot.docs);
         sortHTL(snapshot.docs);
-        applyEvent(snapshot.docs);
+        applyEvent(user);
         deleteEvent(snapshot.docs); 
         eventResponses(id);
         
@@ -115,6 +115,7 @@ signupForm.addEventListener("submit", (e) => {
     .then((cred) => {
       return db.collection("users").doc(cred.user.uid).set(
         {
+          gender: signupForm["signup-gender"].value,
           bio: signupForm["signup-bio"].value,
           displayName: signupForm["signup-name"].value,
         },

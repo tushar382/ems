@@ -78,10 +78,11 @@ function editProfile(){
           document.getElementById("update_workexp").value = doc.data().workExperience;
           document.getElementById("update_skills").value = doc.data().skills;
           document.getElementById("update_dispName").value = doc.data().displayName;
+          document.getElementById("profile_pic").src = doc.data().Link;
       }).catch((error) => {
       console.log("Error getting document:", error);
   });
-  var ImgName, ImgUrl;
+  var  ImgUrl;
   var files = [];
   var reader;
   
@@ -108,7 +109,6 @@ function editProfile(){
       const user = auth.currentUser;
       var phoneno, age, height,bio,workExp,skills,dispName;
       var ImgName = user.uid;
-     // var id = user.uid;
       var uploadTask = firebase.storage().ref('images/'+ImgName+".png").put(files[0]);
         uploadTask.snapshot.ref.getDownloadURL().then(function(url){
             ImgUrl = url;

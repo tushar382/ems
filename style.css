@@ -9,7 +9,7 @@
   background-color: red;
   text-align: center;
   cursor: pointer;
-  width: 50%;
+  width: 100px;
   font-size: 10px;
 }
 .sbtn {
@@ -21,7 +21,7 @@
   background-color: green;
   text-align: center;
   cursor: pointer;
-  width: 50%;
+  width: 100px;
   font-size: 10px;
 }
 .nbtn {
@@ -34,7 +34,7 @@
   background-color: black;
   text-align: center;
   cursor: pointer;
-  width: 50%;
+  width: 100px;
   font-size: 10px;
 }
 
@@ -83,6 +83,8 @@
 }
 
 
+
+
 /*EDIT PROFILE MODAL */
 .text1{
     font-size: small;
@@ -107,7 +109,6 @@ main {
 
 /* LOGIN MODAL  */
 #btn-login{
-    border-radius: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
     font-weight: 300;
@@ -115,7 +116,6 @@ main {
 
 #modal-login{
     background-color: white;
-    border-radius: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: black;
     font-weight: 300;
@@ -124,14 +124,12 @@ main {
 }
 /* SIGN UP MODAL  */
 #btn-signup{
-    border-radius: 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
     font-weight: 300;
 }
 #modal-signup{
-    border-radius: 20px;
-    background-color: white;
+      background-color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: black;
     font-weight: 300;

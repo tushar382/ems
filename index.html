@@ -110,7 +110,7 @@
     <div class="container logged-out">
         <div class="container">
             <p id="tagline">Accomplish more with better events</p><br>
-            <p id="tagline_2">We help you capture ideas and find them fast.</p>
+            <p id="tagline_2">We help you capture events and find them fast.</p>
         </div>
     </div>
 
@@ -146,7 +146,7 @@
                     <label for="signup-name">Name</label>
                 </div>
                 <div class="input-field">
-                    <i class="material-icons prefix grey-text" style="font-size: 25px; top: 15px;">email</i>
+                    <i class="material-icons prefix blue-text" style="font-size: 25px; top: 15px;">email</i>
                     <input type="email" id="signup-email" required />
                     <label for="signup-email">Email address</label>
                 </div>
@@ -157,10 +157,16 @@
                 </div>
                 <div class="input-field">
                     <i class="material-icons prefix grey-text" style="font-size: 25px; top: 15px;">person</i>
+                    <input type="text" id="signup-gender" required />
+                    <label for="signup-gender">Gender</label>
+                </div>
+        
+                <div class="input-field">
+                    <i class="material-icons prefix yellow-text" style="font-size: 25px; top: 15px;">person</i>
                     <input type="text" id="signup-bio" required />
                     <label for="signup-bio">Bio</label>
                 </div>
-                <button class="btn blue lighten-1 z-depth-0 center-align" id="btn-signup">Sign up</button>
+                <button class="nbtn" id="btn-signup">Sign up</button>
                 <p class="error pink-text center-align"></p>
             </form>
         </div>
@@ -172,7 +178,7 @@
             
             <form id="login-form">
                 <div class="input-field">
-                    <i class="material-icons prefix grey-text" style="font-size: 25px; top: 15px;">email</i>
+                    <i class="material-icons prefix blue-text" style="font-size: 25px; top: 15px;">email</i>
                     <input type="email" id="login-email" style="color: black;" required />
                     <label for="login-email">Email address</label>
                 </div>
@@ -181,7 +187,7 @@
                     <input type="password" id="login-password" required />
                     <label for="login-password">Your password</label>
                 </div>
-                <button class="btn blue lighten-1 z-depth-0 center-align" id="btn-login">Login</button>
+                <button class="nbtn" id="btn-login">Login</button>
                 
                 <p class="error pink-text center-align"></p>
             </form>
@@ -191,9 +197,9 @@
     <!-- ACCOUNT MODAL -->
     <div id="modal-account" class="modal card" style="max-width: fit-content;">
         <div class="modal-content  center-align">
-            <h4 class="pheading">Profile</h4><br />
+            
             <div class="account-details" style="max-height: fit-content;"></div>
-            <button class="pbtn" onclick="editProfile()" id="btn-edit-profile"><i class="material-icons">edit</i></button></br>
+            <button class="pbtn" style="width: 100px;" onclick="editProfile()" id="btn-edit-profile"><i class="material-icons">edit</i></button></br>
         </div>
     </div>
     <!-- EDIT PROFILE -->
@@ -284,32 +290,32 @@
     <input type="email" placeholder="User email" id="admin-email" required />
     <button class="btn-small yellow darken-2 z-depth-0">Make admin</button>
 </form>
-
+<!--About us-->
+<div class="container" id="div-aboutus">
+</div>
+<!--Contact us-->
+<div class="container" id="div-contactus">
+</div>
 
 
 <!--FOOTER-->
 <footer class="page-footer grey darken-4" id="footer">
     <div class="container">
         <div class="row">
-            <div class="col l6 s12">
-                <h5 class="white-text">Footer Content</h5>
-                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.
-                </p>
-            </div>
-            <div class="col l4 offset-l2 s12">
-
-                <ul>
-                    <li><a class="grey-text text-lighten-3 hoverable" href="index.html">Home</a></li>
-                    <li><a class="grey-text text-lighten-3 hoverable" href="#!">About us</a></li>
-                    <li><a class="grey-text text-lighten-3 hoverable" href="#!">Contact us</a></li>
-                    <li><a class="grey-text text-lighten-3 hoverable" href="#!">FAQ</a></li>
-                </ul>
+            
+            <div class="col s12">
+                <center>
+                    <a class="grey-text text-lighten-3 hoverable" href="index.html">Home</a>&nbsp;&nbsp;
+                    <a class="grey-text text-lighten-3 hoverable" id="aboutus" href="#!">About us</a>&nbsp;&nbsp;
+                    <a class="grey-text text-lighten-3 hoverable" id="contactus" href="#!">Contact us</a>&nbsp;&nbsp;
+                    <a class="grey-text text-lighten-3 hoverable" href="#!">FAQ</a>
+                </center>
             </div>
         </div>
     </div>
     <div class="footer-copyright black darken-2">
         <div class="container center-align">
-            © 2021 by SkyEvents | Designed by Tushar Ghadi
+             Corporate Events | 2021
         </div>
     </div>
 </footer>

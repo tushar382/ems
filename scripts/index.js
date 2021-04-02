@@ -20,13 +20,21 @@ const setupUI = (user) => {
       .doc(user.uid)
       .get()
       .then((doc) => {
-        const html = `<div class="modal-content">
-                            <img src="${doc.data().Link}" id="profile_pic" height="100px" width="100px" alt="user" /> <br> 
-                            <i class="material-icons prefix grey-text">email</i><br>${user.email
+        const html = `<div class="container" style= "width: 300px;">
+                            <h4 class="pheading">Profile</h4><br />
+                            <img src="${doc.data().Link}"  height="100px" width="100px" alt="user" /> <br> 
+                            <i class="material-icons prefix blue-text">email</i><br>${user.email
           }<br>
-                            <b>${doc.data().displayName}</b><br>${doc.data().bio
-          }<br><i class="material-icons prefix grey-text">call</i><br>
+                            <b>${doc.data().displayName}</b><br>
+                            ${doc.data().gender} &#8226;  ${doc.data().age}</br>
+                            ${doc.data().bio}<br>
+                            <i class="material-icons prefix purple-text">call</i><br>
                             ${doc.data().phoneno}<br>
+                            <p><b>Work Information</b></br>
+                            Work Experience : ${doc.data().workExperience}</br>
+                            Skills : ${doc.data().skills}</br>
+                            </p>
+                            
                             <div class="red-text">${user.admin ? "Admin" : ""
           }</div>
                         </div>
@@ -93,6 +101,79 @@ function eventResponses(id) {
     });
   });
 }
+//About us
+document.getElementById("aboutus").addEventListener("click", (e)=> {
+  e.preventDefault();
+  document.getElementById("div-contactus").innerHTML = "";
+  document.getElementById("div-aboutus").innerHTML =  `<div class="row">
+ 
+  <center>
+  <h4 id="close_aboutus">About us</h4>
+  <a href="#" class="brand-logo" class="responsive" >
+  <img src="logo.svg" class="responsive" style="width: 150px; " align="middle" >
+  </a>
+  <div>
+  <p>Who are we? And what can we do for you?</p>
+  </div>
+  </center>
+  <div class="container">
+  <b>Corporate Events</b> is the web application of project management to the creation and development of small and/or large-scale personal or corporate events.
+  It involves brand events such as promoting and many more.<br><br></hr>
+  The process of planning and coordinating the event is usually referred to as event planning and which can include budgeting, scheduling, site selection, coordinating
+  transportation and parking, managing the crowd, anchoring, hosting,  arranging decor, event security, catering, coordinating with third party vendors, and emergency plans.
+  Each event is different in its nature so process of planning & execution of each event differs on basis of type of event. <br><br>
+  What we do is, we get the best events from brands and gives you opportunity to work with them. The Recruitment process done by the event coordinators and management team. This process includes identifying, 
+  shortlisting, and interviewing, suitable candidates for events/jobs.
+  </div>
+    
+  
+  </div>`;
+  document.getElementById("close_aboutus").addEventListener("click", (e)=> {
+    e.preventDefault();
+    
+    document.getElementById("div-aboutus").innerHTML = "";
+  })
+})
+// contact us
+document.getElementById("contactus").addEventListener("click", (e)=> {
+  e.preventDefault();
+  document.getElementById("div-aboutus").innerHTML = "";
+  document.getElementById("div-contactus").innerHTML = `<div class="row">
+ 
+  <center>
+  <h4 id="close_contactus">Contact us</h4>
+  <a href="#" class="brand-logo" class="responsive" >
+  <img src="logo.svg" class="responsive" style="width: 150px; " align="middle" >
+  </a>
+  </center>
+  <div>
+  <h5>Get Support</h5>
+  <p>If you’re having trouble with Corporate Events, contact us by</p>
+  <div>
+  <ul>
+  <i class="material-icons prefix blue-text" style=" float: left;">email</i><p>eventscorporate538@gmail.com<p>
+   </div><br>
+  <div>
+  <h5>For business inquiries</h5>
+  <div>
+  <i class="material-icons prefix blue-text" style=" float: left;">email</i><p>eventscorporate538@gmail.com<p>
+  </div>
+  </div><br>
+  <div>
+  <h5>For Developers</h5>
+  <p>If you are interested in developing an integration, contact us by</p> 
+  <div>
+  
+  <i class="material-icons prefix blue-text" style=" float: left;">email</i><p>tusharghadi6710@gmail.com<p>
+  
+
+ 
+  </div>
+  </div>
+    
+  
+  </div>`;;
+})
 
 //setup the events
 function eventsList() {
@@ -107,15 +188,16 @@ function eventsList() {
           <li>
           <div class="collapsible-header grey lighten-4">${eventValue.data().title
         }</div>
-          <div class="collapsible-body white"><p>Description</p>${eventValue.data().description
+          <div class="collapsible-body white"><p>Description</p><i class="material-icons prefix yellow-text">description</i>${eventValue.data().description
         }</br><hr>
-          <p>Eligibility</p>${eventValue.data().eligibility}</br><hr>
-          <p>Schedule</p>${eventValue.data().schedule}</br><hr>
-          <p>Location</p>${eventValue.data().location}</br><hr>
-          <p>Payment</p>${eventValue.data().payment}</br>
-          <button type="submit" class="btn btn-danger" onclick="applyEvent('${eventValue.id}')">
+          <p>Eligibility</p><i class="material-icons prefix brown-text" style=" float: left;">bookmark</i>${eventValue.data().eligibility}</br><hr>
+          <p>Schedule</p><i class="material-icons prefix red-text" style=" float: left;">schedule</i>${eventValue.data().schedule}</br><hr>
+          <p>Location</p><i class="material-icons prefix blue-text" style=" float: left;">location_on</i>${eventValue.data().location}</br><hr>
+          <p>Payment</p> <i class="material-icons prefix green-text" style=" float: left;">attach_money</i>${eventValue.data().payment}</br>
+          <center> <button type="submit" class="sbtn" onclick="applyEvent('${eventValue.id}')">
           <i class="fas fa-trash-alt"></i>Apply</button>
-          </div>
+          </center>
+         </div>
           </li><br></hr>`;
     });
   });
@@ -129,20 +211,21 @@ function applyEvent(id) {
             <h4></h4><br />
               <form class="border p-4 mb-4" id="applyform">
                 <div class="form-group">
-                  <label>Name</label>
+               
+                  <label class="text1">Name</label>
                   <input type="text" class="form-control" id="name" placeholder="Enter name">
                 </div>
                 <div class="form-group">
-                  <label>Email</label>
+                  <label class="text1">Email</label>
                   <input type="text" class="form-control" id="email" placeholder="Enter email">
                 </div>
                 <div class="form-group"> 
-                  <label>Phone Number</label>
+                  <label class="text1">Phone Number</label>
                   <input type="text" class="form-control" id="phnumber" placeholder="Enter number">
                 </div>
-                <button type="submit" style="display: inline-block" id="submitBtn" class="btn btn-success"><i class="fas fa-sync"></i>Submit</button>
-                <button style="display: inline-block" id="apply-cancelBtn" class="btn btn-danger"><i class="fas fa-ban"></i>Cancel</button>
-              </form> ;
+                <button type="submit" style="display: inline-block" id="submitBtn" class="sbtn"><i class="fas fa-sync"></i>Submit</button>
+                <button style="display: inline-block" id="apply-cancelBtn" class="nbtn"><i class="fas fa-ban"></i>Cancel</button>
+              </form> 
          `;
   document.getElementById("apply-cancelBtn").addEventListener("click", (e) => {
     e.preventDefault();
@@ -159,9 +242,19 @@ function applyEvent(id) {
       document.getElementById("email").value
     );
   });
+  var user = auth.currentUser;
+  var userDataref = db.collection("users").doc(user.uid)
+  userDataref.get().then((doc) => {
+        document.getElementById("name").value = doc.data().displayName;
+        document.getElementById("phnumber").value = doc.data().phoneno;
+        document.getElementById("email").value = doc.data().mail;
+        
+    }).catch((error) => {
+        console.log("Error getting document:", error);
+    });
 
   displayName = document.getElementById("name").value;
-  phoneno = document.getElementById("phnumber").value;
+  Phone = document.getElementById("phnumber").value;
   email = document.getElementById("email").value;
 
   function updateTask2(id, displayName, Phoneno, email) {
