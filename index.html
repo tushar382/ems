@@ -44,15 +44,7 @@
                     <li class="logged-out hoverable" style="display: none;">
                         <a href="#" class="white-text modal-trigger" data-target="modal-signup">Sign up</a>
                     </li>
-                    <ul id="dropdownFeaturesdesktop" class="dropdown-content" id="features">
-                        <li><a href="#!" class="modal-trigger" data-target="modal-features-easytouse">Easy to Use</a></li>
-                        <li><a href="#!">two</a></li>
-                        <li><a href="#!">three</a></li>
-                    </ul>
-                    <li class="logged-out hoverable" style="display: none;"><a class="dropdown-trigger" href="#!" 
-                            data-target="dropdownFeaturesdesktop">Features<i
-                                class="material-icons right" id="featuresArrow">arrow_drop_down</i></a>
-                    </li>
+                   
 
                     <li class="logged-in" style="display: none;">
                         <a href="#" class="white-text" id="logout">Logout</a>
@@ -88,15 +80,7 @@
             <a href="#" class="white-text modal-trigger" data-target="modal-signup">
                 <i class="material-icons prefix white-text">how_to_reg</i>Sign up</a>
         </li>
-        <ul id="dropdownFeaturesmobile" class="dropdown-content">
-            <li><a href="#!">one</a></li>
-            <li><a href="#!">two</a></li>
-            <li><a href="#!">three</a></li>
-        </ul>
-        <li class="logged-out" style="display: none;"><a class="white-text dropdown-trigger" href="#!"
-                data-target="dropdownFeaturesmobile">
-                <i class="material-icons prefix white-text">view_headline</i>Features</a>
-        </li>
+       
         <li class="logged-in" style="display: none;">
             <a href="#" class="white-text" id="logout-mobile">
                 <i class="material-icons prefix white-text">directions_run</i>Logout</a>
@@ -107,7 +91,15 @@
         <span class="loader"><span class="loader-inner"></span></span>
       </div>
 
-    <div class="container logged-out">
+
+      <div class="carousel carousel-slider logged-out ">
+        <a class="carousel-item" href="#"><img src="/C3.jfif"></a>
+        <a class="carousel-item" href="#"><img src="/C2.jfif"></a>
+        <a class="carousel-item" href="#"><img src="/C1.jfif"></a>
+       </div>
+            
+
+    <div class="container logged-out ">
         <div class="container">
             <p id="tagline">Accomplish more with better events</p><br>
             <p id="tagline_2">We help you capture events and find them fast.</p>
@@ -267,7 +259,7 @@
 <div id="modal-manage" class="modal">
     <div class="modal-content">
         <div class="container" style="margin-top: 5px;">
-            <h5>Manage Events</h5>
+            <h5> <i class="material-icons prefix blue-text" style=" float: right;">manage_accounts</i></i>Manage Events</h5>
                 
 
             <ul class="collapsible z-depth-0 " id="manage-eventslist" style="border: none;">             
@@ -296,26 +288,27 @@
 <!--Contact us-->
 <div class="container" id="div-contactus">
 </div>
+<!--FAQ-->
+<div class="container" id="div-faq">
+</div>
 
 
 <!--FOOTER-->
-<footer class="page-footer grey darken-4" id="footer">
-    <div class="container">
+<footer class="page-footer  black darken-2" id="footer">
+    <div class="container center-align">
         <div class="row">
             
             <div class="col s12">
-                <center>
+               
                     <a class="grey-text text-lighten-3 hoverable" href="index.html">Home</a>&nbsp;&nbsp;
                     <a class="grey-text text-lighten-3 hoverable" id="aboutus" href="#!">About us</a>&nbsp;&nbsp;
                     <a class="grey-text text-lighten-3 hoverable" id="contactus" href="#!">Contact us</a>&nbsp;&nbsp;
-                    <a class="grey-text text-lighten-3 hoverable" href="#!">FAQ</a>
-                </center>
+                    <a class="grey-text text-lighten-3 hoverable" id="faq" href="#!">FAQ</a>
+                    <div class="container center-align">
+                        Corporate Events | 2021
+                   </div>
+                
             </div>
-        </div>
-    </div>
-    <div class="footer-copyright black darken-2">
-        <div class="container center-align">
-             Corporate Events | 2021
         </div>
     </div>
 </footer>

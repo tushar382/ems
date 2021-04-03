@@ -19,11 +19,12 @@ function manageEventsList() {
         <li class="list">
             <div class="collapsible-header grey lighten-4">${eventValue.data().title}</div>
           <div class="collapsible-body white">
+          <center>
           <button type="submit" class="sbtn" onclick="eventResponses('${eventValue.id}')">
           <i class="fas fa-trash-alt"></i>Check Responses</button></br></br>
           <button type="submit" class="dbtn" onclick="deleteEvent('${eventValue.id}')">
           <i class="fas fa-trash-alt"></i>Delete</button>
-          
+          <center>
           </div>
         </li><br>`;
   
@@ -51,7 +52,7 @@ function sortLTH(){
             </i>&#x2716</button></br></br>
    
             <input type ="text" id="searchMEvents_LTH" placeholder="Enter Events title" onkeyup="searchMEvents_LTH()">
-            <p>Sorted by Payment: Low to High<i class="material-icons blue-text">swap_vert</i></p>
+            <p>Sorted by Payment: Low to High<i class="material-icons blue-text" style=" float: right;">swap_vert</i></p>
             
                </div>`;
             snapshot.forEach(function (eventValue) {
@@ -59,10 +60,12 @@ function sortLTH(){
               <li>
                   <div class="collapsible-header grey lighten-4">${eventValue.data().title}</div>
                 <div class="collapsible-body white">
+                <center>
                 <button type="submit" class="sbtn" onclick="eventResponses('${eventValue.id}')">
                 <i class="fas fa-trash-alt"></i>Check Responses</button></br></br>
                 <button type="submit" class="dbtn" onclick="deleteEvent('${eventValue.id}')">
                 <i class="fas fa-trash-alt"></i>Delete</button>
+                <center>
                 
                 </div>
               </li><br>`;
@@ -81,7 +84,7 @@ function sortHTL(){
    
        
             <input type ="text" id="searchMEvents_HTL" placeholder="Enter Events title" onkeyup="searchMEvents_HTL()">
-            <p>Sorted by Payment: High to Low<i class="material-icons blue-text">swap_vert</i></p>
+            <p>Sorted by Payment: High to Low<i class="material-icons blue-text" style=" float: right;">swap_vert</i></p>
             
                </div>`;
             snapshot.forEach(function (eventValue) {
@@ -89,10 +92,12 @@ function sortHTL(){
               <li>
                   <div class="collapsible-header grey lighten-4">${eventValue.data().title}</div>
                 <div class="collapsible-body white">
+                <center>
                 <button type="submit" class="sbtn" onclick="eventResponses('${eventValue.id}')">
                 <i class="fas fa-trash-alt"></i>Check Responses</button></br></br>
                 <button type="submit" class="dbtn" onclick="deleteEvent('${eventValue.id}')">
                 <i class="fas fa-trash-alt"></i>Delete</button>
+                <center>
                 
                 </div>
               </li><br>`;

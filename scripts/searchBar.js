@@ -13,6 +13,21 @@ const searchHEvents = () => {
         }
     }
 };
+//Search events in My events
+const searchMyEvents = () => {
+    let filter = document.getElementById("searchMyevents").value.toUpperCase();
+    let ul = document.getElementById("my-eventslist");
+    let li = ul.getElementsByTagName("li");
+    for (var i = 0; i < li.length; i++) {
+        let div = li[i].getElementsByTagName("div")[0];
+        let textValue = div.textContent || div.innerHTML;
+        if (textValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none ";
+        }
+    }
+};
 //search user in check responses section
 const searchUser = () => {
     let filter = document.getElementById("searchUser").value.toUpperCase();

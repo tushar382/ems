@@ -138,7 +138,7 @@ function editProfile(){
           .doc(user.uid)
           .set(
             {
-              
+              uid: user.uid,
               phoneno: phoneno,
               age: age,
               height: height,

@@ -1,22 +1,22 @@
- // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    var firebaseConfig = {
-      apiKey: "AIzaSyAGVDJvncV6sMaNI55zjyT7hnvMwJ2iBcE",
-      authDomain: "event-management-system-a8d99.firebaseapp.com",
-      projectId: "event-management-system-a8d99",
-      storageBucket: "event-management-system-a8d99.appspot.com",
-      appId: "1:498689851436:web:865c6282361285eb8fd189",
-      measurementId: "G-ZBH1Y22WYJ"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-  // Make auth,functions and firestore references
-  const auth = firebase.auth();
-  const db = firebase.firestore();
-  const functions = firebase.functions();
-  //update firestore settings
-  db.settings({ timestampsInSanpshots: true });
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+var firebaseConfig = {
+  apiKey: "AIzaSyAGVDJvncV6sMaNI55zjyT7hnvMwJ2iBcE",
+  authDomain: "event-management-system-a8d99.firebaseapp.com",
+  projectId: "event-management-system-a8d99",
+  storageBucket: "event-management-system-a8d99.appspot.com",
+  appId: "1:498689851436:web:865c6282361285eb8fd189",
+  measurementId: "G-ZBH1Y22WYJ"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+// Make auth,functions and firestore references
+const auth = firebase.auth();
+const db = firebase.firestore();
+const functions = firebase.functions();
+//update firestore settings
+db.settings({ timestampsInSanpshots: true });
 
 //add admin cloud function
 const adminForm = document.querySelector(".admin-actions");
@@ -31,7 +31,7 @@ adminForm.addEventListener("submit", (e) => {
 // listen for auth status changes
 auth.onAuthStateChanged((user) => {
   if (user) {
-    
+
     user.getIdTokenResult().then((idTokenResult) => {
       user.admin = idTokenResult.claims.admin;
       setupUI();
@@ -42,14 +42,14 @@ auth.onAuthStateChanged((user) => {
         setupUI(user);
         eventsList(snapshot.docs);
         manageEventsList(snapshot.docs);
-        
+        myevents(snapshot.docs)
         sortLTH(snapshot.docs);
         sortHTL(snapshot.docs);
         applyEvent(user);
-        deleteEvent(snapshot.docs); 
+        deleteEvent(snapshot.docs);
         eventResponses(id);
-        
-        
+
+
       },
       (err) => {
         console.log(err.message);
@@ -60,43 +60,18 @@ auth.onAuthStateChanged((user) => {
     eventsList([]);
     applyEvent([]);
     manageEventsList([]);
-    
+    myevents([]);
     deleteEvent([]);
     eventResponses([]);
     sortLTH([]);
     sortHTL([]);
 
-  
-    
+
+
   }
 });
 
-//create new event
-const createForm = document.querySelector("#create-form");
-createForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  var payment = createForm[("payment")].value;
-  payment = parseInt(payment);
-  
-  db.collection("events")
-    .add({
-      title: createForm["title"].value,
-      description: createForm["desc"].value,
-      eligibility: createForm["eligibilty"].value,
-      schedule: createForm["schedule"].value,
-      location: createForm["location"].value,
-      payment: payment,
-    })
-    .then(() => {
-      //close the modal and reset form
-      const modal = document.querySelector("#modal-create");
-      M.Modal.getInstance(modal).close();
-      createForm.reset();
-    })
-    .catch((err) => {
-      console.log(err.message);
-    });
-});
+
 
 
 
@@ -114,7 +89,9 @@ signupForm.addEventListener("submit", (e) => {
     .createUserWithEmailAndPassword(email, password)
     .then((cred) => {
       return db.collection("users").doc(cred.user.uid).set(
+
         {
+
           gender: signupForm["signup-gender"].value,
           bio: signupForm["signup-bio"].value,
           displayName: signupForm["signup-name"].value,

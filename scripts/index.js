@@ -1,5 +1,3 @@
-
-
 const eventList = document.querySelector(".events");
 const manageEventList = document.querySelector(".manage-events");
 const loggedOutLinks = document.querySelectorAll(".logged-out");
@@ -8,21 +6,21 @@ const accountDetails = document.querySelector(".account-details");
 const adminItems = document.querySelectorAll(".admin");
 const userItems = document.querySelector(".useronly");
 
-
 const setupUI = (user) => {
   if (user) {
     if (user.admin) {
       adminItems.forEach((item) => (item.style.display = "block"));
     }
     //account info
-    const ImgName = user.uid; 
+    const ImgName = user.uid;
     db.collection("users")
       .doc(user.uid)
       .get()
       .then((doc) => {
         const html = `<div class="container" style= "width: 300px;">
                             <h4 class="pheading">Profile</h4><br />
-                            <img src="${doc.data().Link}"  height="100px" width="100px" alt="user" /> <br> 
+                            <img src="${doc.data().Link
+          }"  height="100px" width="100px" alt="user" /> <br> 
                             <i class="material-icons prefix blue-text">email</i><br>${user.email
           }<br>
                             <b>${doc.data().displayName}</b><br>
@@ -41,24 +39,12 @@ const setupUI = (user) => {
                        
                         
                         `;
-                        accountDetails.innerHTML = html;
-                        
-                  
-                    
-                    
-  
-      },
-
-    
-    );
-   
-  
-   
+        accountDetails.innerHTML = html;
+      });
 
     //toggle UI Elements
     loggedInLinks.forEach((item) => (item.style.display = "block"));
     loggedOutLinks.forEach((item) => (item.style.display = "none"));
-
   } else {
     adminItems.forEach((item) => (item.style.display = "none"));
     //hide account info
@@ -69,11 +55,13 @@ const setupUI = (user) => {
   }
 };
 
-//Event reponses 
+//Event reponses
 function eventResponses(id) {
   var eventID = id;
-  db.collection("eventResponses").where("eventID", "==", eventID).onSnapshot(function (snapshot) {
-    document.getElementById("manage-eventslist").innerHTML = `
+  db.collection("eventResponses")
+    .where("eventID", "==", eventID)
+    .onSnapshot(function (snapshot) {
+      document.getElementById("manage-eventslist").innerHTML = `
     <button style="display: inline-block; width: 10%;" id="backBtn" class="nbtn" >
     <i class="fas fa-trash-alt"></i>&#x2716</button></br></br>
    
@@ -83,29 +71,34 @@ function eventResponses(id) {
    
     `;
 
-    snapshot.forEach(function (eventValue) {
-      document.getElementById("manage-eventslist").innerHTML += `
+      snapshot.forEach(function (eventValue) {
+        document.getElementById("manage-eventslist").innerHTML += `
     
       <li>
-      <div class="collapsible-header grey lighten-4">${eventValue.data().Name}</div>
+      <div class="collapsible-header grey lighten-4">${eventValue.data().Name
+          }</div>
       <div class="collapsible-body white">
       <p>Contact number</p>${eventValue.data().Phone}</br><hr>
       <p>Email</p>${eventValue.data().email}</br><hr>
+      <h5>Work Information</h5>
+      <p>Height</p>${eventValue.data().height}</br><hr>
+      <p>Work Experience</p>${eventValue.data().workExp}</br><hr>
+      <p>Skills</p>${eventValue.data().skills}</br><hr>
       </li><br>
       `;
+      });
+      document.getElementById("backBtn").addEventListener("click", (e) => {
+        e.preventDefault();
+        manageEventsList();
+      });
     });
-    document.getElementById("backBtn").addEventListener("click", (e) => {
-      
-      e.preventDefault();
-      manageEventsList();
-    });
-  });
 }
 //About us
-document.getElementById("aboutus").addEventListener("click", (e)=> {
+document.getElementById("aboutus").addEventListener("click", (e) => {
   e.preventDefault();
   document.getElementById("div-contactus").innerHTML = "";
-  document.getElementById("div-aboutus").innerHTML =  `<div class="row">
+  document.getElementById("div-faq").innerHTML = "";
+  document.getElementById("div-aboutus").innerHTML = `<div class="row">
  
   <center>
   <h4 id="close_aboutus">About us</h4>
@@ -128,16 +121,17 @@ document.getElementById("aboutus").addEventListener("click", (e)=> {
     
   
   </div>`;
-  document.getElementById("close_aboutus").addEventListener("click", (e)=> {
+  document.getElementById("close_aboutus").addEventListener("click", (e) => {
     e.preventDefault();
-    
+
     document.getElementById("div-aboutus").innerHTML = "";
-  })
-})
+  });
+});
 // contact us
-document.getElementById("contactus").addEventListener("click", (e)=> {
+document.getElementById("contactus").addEventListener("click", (e) => {
   e.preventDefault();
   document.getElementById("div-aboutus").innerHTML = "";
+  document.getElementById("div-faq").innerHTML = "";
   document.getElementById("div-contactus").innerHTML = `<div class="row">
  
   <center>
@@ -147,85 +141,203 @@ document.getElementById("contactus").addEventListener("click", (e)=> {
   </a>
   </center>
   <div>
-  <h5>Get Support</h5>
+  <h5><i class="material-icons prefix green-text" style="font-size: 30px; float: left;">support_agent</i>&nbsp;Get Support</h5>
   <p>If you’re having trouble with Corporate Events, contact us by</p>
-  <div>
-  <ul>
   <i class="material-icons prefix blue-text" style=" float: left;">email</i><p>eventscorporate538@gmail.com<p>
-   </div><br>
+  <br>
   <div>
-  <h5>For business inquiries</h5>
-  <div>
+  <h5><i class="material-icons prefix green-text" style="font-size: 30px; float: left;">work</i>&nbsp;For business inquiries</h5>
   <i class="material-icons prefix blue-text" style=" float: left;">email</i><p>eventscorporate538@gmail.com<p>
-  </div>
   </div><br>
   <div>
-  <h5>For Developers</h5>
+  <h5><i class="material-icons prefix green-text" style="font-size: 30px; float: left;">code</i>&nbsp;For Developers</h5>
   <p>If you are interested in developing an integration, contact us by</p> 
-  <div>
-  
   <i class="material-icons prefix blue-text" style=" float: left;">email</i><p>tusharghadi6710@gmail.com<p>
-  
-
- 
-  </div>
   </div>
     
   
-  </div>`;;
-})
+  </div>`;
+  document.getElementById("close_contactus").addEventListener("click", (e) => {
+    e.preventDefault();
+
+    document.getElementById("div-contactus").innerHTML = "";
+  });
+});
+// faq
+document.getElementById("faq").addEventListener("click", (e) => {
+  e.preventDefault();
+  document.getElementById("div-aboutus").innerHTML = "";
+  document.getElementById("div-contactus").innerHTML = "";
+  document.getElementById("div-faq").innerHTML = `<div class="row">
+
+ 
+  <center>
+  <h4 id="close_contactus">FAQ</h4>
+  <a href="#" class="brand-logo" class="responsive" >
+  <img src="logo.svg" class="responsive" style="width: 150px; " align="middle" >
+  </a>
+  </center>
+  <div>
+  <ul>
+  <li>
+  </ul>
+  </div>
+  `;
+});
+
+//create new event
+const createForm = document.getElementById("create-form");
+createForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  var payment = createForm["payment"].value;
+  payment = parseInt(payment);
+  var num = Math.random() * 100;
+  var eventID = num.toString();
+  console.log(eventID);
+  return db
+    .collection("events")
+    .doc(eventID)
+    .set({
+      eventId: eventID,
+      title: createForm["title"].value,
+      description: createForm["desc"].value,
+      eligibility: createForm["eligibilty"].value,
+      schedule: createForm["schedule"].value,
+      location: createForm["location"].value,
+      payment: payment,
+    })
+    .then(() => {
+      //close the modal and reset form
+      const modal = document.querySelector("#modal-create");
+      M.Modal.getInstance(modal).close();
+      createForm.reset();
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+});
+
+//setup my events
+function myevents() {
+  user = auth.currentUser;
+  userId = user.uid;
+
+  db.collection("eventResponses")
+    .where("uid", "==", userId)
+    .onSnapshot(function (snapshot) {
+      document.getElementById("my-eventslist").innerHTML = `<div>
+    <h4>My Events</h4>
+    <input type ="text" id="searchMyevents" placeholder="Search for events" onkeyup="searchMyEvents()">
+  
+    </div>
+    `;
+
+      snapshot.forEach(function (eventValue) {
+        var myevents = eventValue.data().eventID;
+        //console.log(myevents);
+        db.collection("events")
+          .where("eventId", "==", myevents)
+          .onSnapshot(function (snapshot) {
+            snapshot.forEach(function (eventValue) {
+              document.getElementById("my-eventslist").innerHTML += `<li>
+            <div class="collapsible-header grey lighten-4">${eventValue.data().title
+                }</div>
+            <div class="collapsible-body white"><p>Description</p><i class="material-icons prefix yellow-text">description</i>${eventValue.data().description
+                }</br><hr>
+            <p>Eligibility</p><i class="material-icons prefix brown-text" style=" float: left;">bookmark</i>${eventValue.data().eligibility
+                }</br><hr>
+            <p>Schedule</p><i class="material-icons prefix red-text" style=" float: left;">schedule</i>${eventValue.data().schedule
+                }</br><hr>
+            <p>Location</p><i class="material-icons prefix blue-text" style=" float: left;">location_on</i>${eventValue.data().location
+                }</br><hr>
+            <p>Payment</p> <i class="material-icons prefix green-text" style=" float: left;">attach_money</i>${eventValue.data().payment
+                }</br>
+            </div>
+          </li><br></hr>
+            `;
+            });
+          });
+      });
+    });
+}
 
 //setup the events
 function eventsList() {
-  
-  db.collection("events").orderBy("payment").onSnapshot(function (snapshot) {
-    document.getElementById("eventslist").innerHTML = `<div>
+  db.collection("events")
+    .orderBy("payment")
+    .onSnapshot(function (snapshot) {
+      document.getElementById("eventslist").innerHTML = `<div>
     <h4>Available Events</h4>
-    <input type ="text" id="searchHevents" placeholder="Enter Events title" onkeyup="searchHEvents()">
+    <input type ="text" id="searchHevents" placeholder="Search for events" onkeyup="searchHEvents()">
     </div>`;
-    snapshot.forEach(function (eventValue) {
-      document.getElementById("eventslist").innerHTML += `
+      snapshot.forEach(function (eventValue) {
+        document.getElementById("eventslist").innerHTML += `
           <li>
           <div class="collapsible-header grey lighten-4">${eventValue.data().title
-        }</div>
+          }</div>
           <div class="collapsible-body white"><p>Description</p><i class="material-icons prefix yellow-text">description</i>${eventValue.data().description
-        }</br><hr>
-          <p>Eligibility</p><i class="material-icons prefix brown-text" style=" float: left;">bookmark</i>${eventValue.data().eligibility}</br><hr>
-          <p>Schedule</p><i class="material-icons prefix red-text" style=" float: left;">schedule</i>${eventValue.data().schedule}</br><hr>
-          <p>Location</p><i class="material-icons prefix blue-text" style=" float: left;">location_on</i>${eventValue.data().location}</br><hr>
-          <p>Payment</p> <i class="material-icons prefix green-text" style=" float: left;">attach_money</i>${eventValue.data().payment}</br>
-          <center> <button type="submit" class="sbtn" onclick="applyEvent('${eventValue.id}')">
+          }</br><hr>
+          <p>Eligibility</p><i class="material-icons prefix brown-text" style=" float: left;">bookmark</i>${eventValue.data().eligibility
+          }</br><hr>
+          <p>Schedule</p><i class="material-icons prefix red-text" style=" float: left;">schedule</i>${eventValue.data().schedule
+          }</br><hr>
+          <p>Location</p><i class="material-icons prefix blue-text" style=" float: left;">location_on</i>${eventValue.data().location
+          }</br><hr>
+          <p>Payment</p> <i class="material-icons prefix green-text" style=" float: left;">attach_money</i>${eventValue.data().payment
+          }</br>
+          <center> <button type="submit" class="sbtn" onclick="applyEvent('${eventValue.id
+          }')">
           <i class="fas fa-trash-alt"></i>Apply</button>
           </center>
          </div>
           </li><br></hr>`;
+      });
     });
-  });
 }
 
 //apply for event
 function applyEvent(id) {
   var user = firebase.auth().currentUser;
   document.getElementById("eventslist").innerHTML = `
-        
-            <h4></h4><br />
+  <h4></h4><br />
               <form class="border p-4 mb-4" id="applyform">
+              <p><b>Candidate Information</b></p>
                 <div class="form-group">
-               
-                  <label class="text1">Name</label>
-                  <input type="text" class="form-control" id="name" placeholder="Enter name">
+                  <label class="text1">
+                  <i class="material-icons prefix green-text" style=" float: left;">person</i>Name</label>
+                  <input type="text" class="form-control" id="name" placeholder="Enter name" required />
                 </div>
                 <div class="form-group">
-                  <label class="text1">Email</label>
-                  <input type="text" class="form-control" id="email" placeholder="Enter email">
+                  <label class="text1">
+                  <i class="material-icons prefix blue-text" style=" float: left;">email</i>Email</label>
+                  <input type="text" class="form-control" id="email" placeholder="Enter email" required />
                 </div>
                 <div class="form-group"> 
-                  <label class="text1">Phone Number</label>
-                  <input type="text" class="form-control" id="phnumber" placeholder="Enter number">
+                  <label class="text1">
+                  <i class="material-icons prefix purple-text" style=" float: left;">call</i>Phone Number</label>
+                  <input type="text" class="form-control" id="phnumber" placeholder="Enter number" required />
                 </div>
+                <p><b>Work Information</b></p>
+                <div class="form-group"> 
+                  <label class="text1">
+                  <i class="material-icons prefix yellow-text"  style=" float: left;">accessibility</i>Height</label>
+                  <input type="text" class="form-control" id="height" placeholder="Enter height in cm" required />
+                </div>
+                <div class="form-group"> 
+                  <label class="text1">
+                  <i class="material-icons prefix blue-text" style=" float: left;">work</i>Work Experience</label>
+                  <input type="text" class="form-control" id="workexp" placeholder="Enter work experience" required />
+                </div>
+                <div class="form-group"> 
+                  <label class="text1">
+                  <i class="material-icons prefix orange-text" style=" float: left;">psychology</i>Skills</label>
+                  <input type="text" class="form-control" id="skills" placeholder="Enter skills" required />
+                </div>
+                <center>
                 <button type="submit" style="display: inline-block" id="submitBtn" class="sbtn"><i class="fas fa-sync"></i>Submit</button>
                 <button style="display: inline-block" id="apply-cancelBtn" class="nbtn"><i class="fas fa-ban"></i>Cancel</button>
-              </form> 
+                </center>
+              </form>     
          `;
   document.getElementById("apply-cancelBtn").addEventListener("click", (e) => {
     e.preventDefault();
@@ -235,46 +347,69 @@ function applyEvent(id) {
     e.preventDefault();
   });
   document.getElementById("submitBtn").addEventListener("click", (e) => {
+    e.preventDefault();
     updateTask2(
       id,
       document.getElementById("name").value,
       document.getElementById("phnumber").value,
-      document.getElementById("email").value
+      document.getElementById("email").value,
+      document.getElementById("height").value,
+      document.getElementById("skills").value,
+      document.getElementById("workexp").value
     );
   });
   var user = auth.currentUser;
-  var userDataref = db.collection("users").doc(user.uid)
-  userDataref.get().then((doc) => {
-        document.getElementById("name").value = doc.data().displayName;
-        document.getElementById("phnumber").value = doc.data().phoneno;
-        document.getElementById("email").value = doc.data().mail;
-        
-    }).catch((error) => {
-        console.log("Error getting document:", error);
+  document.getElementById("email").value = user.email;
+  var userDataref = db.collection("users").doc(user.uid);
+  userDataref
+    .get()
+    .then((doc) => {
+      document.getElementById("name").value = doc.data().displayName;
+      document.getElementById("phnumber").value = doc.data().phoneno;
+      document.getElementById("height").value = doc.data().height;
+      document.getElementById("skills").value = doc.data().skills;
+      document.getElementById("workexp").value = doc.data().workExperience;
+    })
+    .catch((error) => {
+      console.log("Error getting document:", error);
     });
 
   displayName = document.getElementById("name").value;
   Phone = document.getElementById("phnumber").value;
   email = document.getElementById("email").value;
+  height = document.getElementById("height").value;
+  workExp = document.getElementById("workexp").value;
+  skills = document.getElementById("skills").value;
 
-  function updateTask2(id, displayName, Phoneno, email) {
+  function updateTask2(
+    id,
+    displayName,
+    Phoneno,
+    email,
+    height,
+    workExp,
+    skills
+  ) {
     var taskupdated = {
       eventID: id,
       uid: user.uid,
       Name: displayName,
       Phone: Phoneno,
-      email: email
+      email: email,
+      height: height,
+      workExp: workExp,
+      skills: skills,
     };
     let db = firebase.firestore().collection("eventResponses").doc();
     db.set(taskupdated).then(() => {
       Swal.fire("Good job!", "Appiled!", "success");
     });
-    
+
     document.getElementById("eventslist").innerHTML = "";
     eventsList();
   }
 }
-//delete the event 
+//delete the event
 function deleteEvent(id) {
   firebase
     .firestore()
