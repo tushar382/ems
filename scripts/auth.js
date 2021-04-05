@@ -17,7 +17,6 @@ const db = firebase.firestore();
 const functions = firebase.functions();
 //update firestore settings
 db.settings({ timestampsInSanpshots: true });
-
 //add admin cloud function
 const adminForm = document.querySelector(".admin-actions");
 adminForm.addEventListener("submit", (e) => {
@@ -31,7 +30,6 @@ adminForm.addEventListener("submit", (e) => {
 // listen for auth status changes
 auth.onAuthStateChanged((user) => {
   if (user) {
-
     user.getIdTokenResult().then((idTokenResult) => {
       user.admin = idTokenResult.claims.admin;
       setupUI();
@@ -48,8 +46,7 @@ auth.onAuthStateChanged((user) => {
         applyEvent(user);
         deleteEvent(snapshot.docs);
         eventResponses(id);
-
-
+        hireApplicant(snapshot.docs);
       },
       (err) => {
         console.log(err.message);
@@ -65,33 +62,22 @@ auth.onAuthStateChanged((user) => {
     eventResponses([]);
     sortLTH([]);
     sortHTL([]);
-
-
-
+    hireApplicant([]);
   }
 });
-
-
-
-
-
 //signup
 const signupForm = document.querySelector("#signup-form");
 signupForm.addEventListener("submit", (e) => {
   e.preventDefault();
-
   //get user info
   const email = signupForm["signup-email"].value;
   const password = signupForm["signup-password"].value;
-
   // signup the user
   auth
     .createUserWithEmailAndPassword(email, password)
     .then((cred) => {
       return db.collection("users").doc(cred.user.uid).set(
-
         {
-
           gender: signupForm["signup-gender"].value,
           bio: signupForm["signup-bio"].value,
           displayName: signupForm["signup-name"].value,
@@ -109,7 +95,6 @@ signupForm.addEventListener("submit", (e) => {
       signupForm.querySelector(".error").innerHTML = err.message;
     });
 });
-
 //login
 const loginForm = document.querySelector("#login-form");
 loginForm.addEventListener("submit", (e) => {
@@ -117,7 +102,6 @@ loginForm.addEventListener("submit", (e) => {
   //get user info
   const email = loginForm["login-email"].value;
   const password = loginForm["login-password"].value;
-
   auth
     .signInWithEmailAndPassword(email, password)
     .then((cred) => {
@@ -131,14 +115,12 @@ loginForm.addEventListener("submit", (e) => {
       loginForm.querySelector(".error").innerHTML = err.message;
     });
 });
-
 // logoutDesktop
 const logout = document.querySelector("#logout");
 logout.addEventListener("click", (e) => {
   e.preventDefault();
   auth.signOut();
 });
-
 // logoutMobile
 const logoutMobile = document.querySelector("#logout-mobile");
 logoutMobile.addEventListener("click", (e) => {

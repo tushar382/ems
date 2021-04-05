@@ -58,6 +58,7 @@ const searchMEvents = () => {
         }
     }
 };
+//searchBar of manage events low to high
 const searchMEvents_LTH = () => {
     let filter = document.getElementById("searchMEvents_LTH").value.toUpperCase();
     let ul = document.getElementById("manage-eventslist");
@@ -72,6 +73,7 @@ const searchMEvents_LTH = () => {
         }
     }
 };
+//searchBar of manage events high to low
 const searchMEvents_HTL = () => {
     let filter = document.getElementById("searchMEvents_HTL").value.toUpperCase();
     let ul = document.getElementById("manage-eventslist");
