@@ -88,23 +88,31 @@
             <a href="#" class="white-text" id="logout-mobile">
                 <i class="material-icons prefix white-text">directions_run</i>Logout</a>
         </li>
-        </span>
-        </ul>
-        <div class="loader-wrapper">
-            <span class="loader"><span class="loader-inner"></span></span>
+        
+    </ul>
+    <div class="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span>
+    </div>
+    <div class="logged-in">
+        <div class="carousel carousel-slider ">
+            <a class="carousel-item" href="#"><img src="C3.jpg"></a>
+            <a class="carousel-item" href="#"><img src="C2.jpg"></a>
+            <a class="carousel-item" href="#"><img src="C1.jpg"></a>
         </div>
+    </div>
+     <!-- EVENT LIST -->
+     <div class="container logged-in" style="margin-top: 40px;">
 
-       
-            
-      
+        <ul class="collapsible z-depth-0 events" id="eventslist" style="border: none;">
+            <h4>Availble Events</h4>
+        </ul>
+    </div>
     <div class=" logged-out ">
         <div class="carousel carousel-slider logged-out ">
             <a class="carousel-item" href="#"><img src="C3.jpg"></a>
             <a class="carousel-item" href="#"><img src="C2.jpg"></a>
             <a class="carousel-item" href="#"><img src="C1.jpg"></a>
-        </div>
-     
-        
+        </div>  
         <div class="container">
             <p id="tagline">Accomplish more with better events</p><br>
             <p id="tagline_2">We help you capture events and find them fast.</p>
@@ -147,6 +155,7 @@
             </div>
         </div>
     </section>
+     
 
     <!--APPLY EVENTS MODAL-->
     <div id="modal-apply-events" class="modal">
@@ -220,6 +229,7 @@
             </form>
         </div>
     </div>
+  
 
     <!-- ACCOUNT MODAL -->
     <div id="modal-account" class="modal card" style="max-width: fit-content;">
@@ -282,13 +292,9 @@
     </div>
 </div>
 
-<!-- EVENT LIST -->
-<div class="container logged-in" style="margin-top: 40px;">
 
-    <ul class="collapsible z-depth-0 events" id="eventslist" style="border: none;">
-        <h4>Availble Events</h4>
-    </ul>
-</div>
+
+
 
 <!--MANAGE EVENTS MODAL-->
 <div id="modal-manage" class="modal">
@@ -370,6 +376,13 @@
         $('.sidenav').sidenav();
     });
 </script>
+<script>
+    $(document).ready(function(){
+    $('.carousel').carousel({dist:0});
+    window.setInterval(function(){$('.carousel').carousel('next')},4000)
+ });
+</script>
+
 <script>
     $(window).on("load",function(){
       $(".loader-wrapper").fadeOut("slow");

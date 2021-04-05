@@ -303,7 +303,7 @@ function eventsList() {
     .orderBy("payment")
     .onSnapshot(function (snapshot) {
       document.getElementById("eventslist").innerHTML = `<div>
-    <h4>Available Events</h4>
+    <h4 style="text-align:center; bottom: 20px;">Available Events</h4>
     <input type ="text" id="searchHevents" placeholder="Search for events" onkeyup="searchHEvents()">
     </div>`;
       snapshot.forEach(function (eventValue) {
