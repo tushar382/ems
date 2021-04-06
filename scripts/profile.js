@@ -6,7 +6,7 @@ const form = document.getElementById("btn-edit-profile").addEventListener('click
 })
 function editProfile(){
   document.getElementById("editProfile").innerHTML = `<div>
-    <h4>Edit profile</h4>
+    <h4 style="text-align:center;">Edit profile</h4>
     <form id="editprofileform">
                 <p>Personal Information</p><hr>
                 <div class="input-field">
