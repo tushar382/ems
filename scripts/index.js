@@ -17,42 +17,36 @@ const setupUI = (user) => {
       .doc(user.uid)
       .get()
       .then((doc) => {
-        const html = `<body style=" background: url(user-background.jfif) ; ">
-        <div class="container muck-up"  style= "width: 300px; ">
-            
-            <div class="top">
-              <div class="nav">
-                <i class="material-icons prefix red-text" style=" float: left;">person</i>
-                <p style=" float: left;">&nbsp;Profile</p>
-              </div><br>
-              <div class="user-profile">
-                <img src="${doc.data().Link}">
-                <div class="user-details" >
-                    <h4>${doc.data().displayName}</h4>
-                    <p><b>${doc.data().skills}</b></p>
-                </div>
-              </div>
-              <div>
-                  <ul class="container">
-                  <li> <i class="material-icons prefix blue-text" style=" float: center;">email</i><p class="text1">${user.email}</p></li>
-                  <p class="text1"><b>Personal Information</b></p>
-                  <li> <i class="material-icons prefix purple-text" style=" float: left;">call</i><p class="text1" style="text-align:left;">Contact:${doc.data().phoneno}</p></li>
-                  <li><i class="material-icons prefix pink-text" style=" float: left;">male</i><p class="text1" style="text-align:left;" >Gender:${doc.data().gender}</p></li>
-                  <li> <i class="material-icons prefix green-text" style=" float: left;">face</i><p class="text1" style="text-align:left;">Age:${doc.data().age}</p></li>
-                  <p class="text1"><b>Work Experience</b></p>
-                  <li> <i class="material-icons prefix brown-text" style="float: center;">work</i><p class="text1" style="text-align:center;">${doc.data().workExperience}</p></li>
-                  </ul>
+        const html = `
+        <div class="card-container" style="width:300px; height: 450px;">
+         <div class="upper-container">
+            <div class="image-container">
+               <img src="${doc.data().Link}" />
             </div>
+         </div>
+         <div class="lower-container">
+            <div>
+               <h5>${doc.data().displayName}</h5>
+               <h6>${doc.data().skills}</h6>
             </div>
-            
-            
-           
-            
-           
-            
+            <div>
+               <p>
+               <i class="material-icons prefix blue-text" style=" float: left;">email</i><p class="text1">${user.email}</p>
+               <i class="material-icons prefix purple-text" style=" float: left;">call</i><p class="text1">${doc.data().phoneno}</p>
+               <i class="material-icons prefix pink-text" style=" float: left;">male</i><p class="text1"  >${doc.data().gender}</p>
+               <p class="text1"><b>Work Experience</b></p>
+               <i class="material-icons prefix brown-text" style="float: center;">work</i><p class="text1" style="text-align:center;">${doc.data().workExperience}</p>
+                
+                 
+                 
+               </p>
+            </div>
+          </div>
         </div>
+
+      
         
-      </body>`;
+        `;
         accountDetails.innerHTML = html;
       });
     //toggle UI Elements
@@ -77,7 +71,8 @@ function eventResponses(id) {
     <button style="display: inline-block; width: 10%;" id="backBtn" class="nbtn" >
     <i class="fas fa-trash-alt"></i>&#x2716</button></br></br>
         <input type ="text" id="searchUser" placeholder="Search by name" onkeyup="searchUser()">
-        <p><b><i class="material-icons prefix blue-text" style="font-size: 25px; float: left;">people</i>&nbsp;Applicants</b></p></br>`;
+        <p><b><i class="material-icons prefix blue-text" style="font-size: 25px; float: left;">people</i>&nbsp;Applicants</b></p></br>
+       `;
         snapshot.forEach(function (eventValue) {
         document.getElementById("manage-eventslist").innerHTML += `
       <li>

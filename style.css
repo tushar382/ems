@@ -1,4 +1,45 @@
-
+  .upper-container{
+  height: 150px;
+ background-image: url(/user-background.jfif);
+  }
+  .image-container{
+  background: white;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  padding: 5px;
+  transform: translate(100px,100px);
+  }
+  .image-container img{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  }
+  .lower-container{
+  height: 430px;
+  background: #FFF;
+  padding: 10px;
+  padding-top: 30px;
+  text-align: center;
+  }
+  .lower-container h5, h6{
+  box-sizing: border-box;
+  line-height: .6;
+  font-weight: lighter;
+  }
+  .lower-container h6{
+  color: red;
+  opacity: .6;
+  font-size: small;
+  font-weight: bold;
+  }
+  .lower-container p{
+  height: fit-content;
+  font-size: 12px;
+  color: gray;
+  margin-bottom: 10px;
+  }
+  
 /*Buttons*/
 .dbtn {
   border: none;
@@ -38,110 +79,28 @@
   width: 100px;
   font-size: 10px;
 }
-
-/*ACCOUNT DETAILS MODAL */
-.card:before{
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 150px;
-  top: 0;
-  left: 0;
-  background-image: url(/user-background.jfif);
-  clip-path: circle(300px at 50% -48.5%);
-}
-
-
-
-
-.muck-up {
-  width: 310px;
-  height: auto;
-  margin: 5em auto;
-  position: relative;
-  overflow: hidden;
-}
-.muck-up > .top {
-  position: relative;
-  min-height: 240px;
-  padding: 15px;
-  color: black;
-}
-
-.top .nav span {
-  float: left;
-  display: block;
-}
-.nav p {
-  margin-top: 2px;
-  display: inline-block;
-  vertical-align: bottom;
-}
-.user-profile {
-  margin-top: 30px;
-}
-.user-profile img {
-  height: 45px;
-  width: 45px;
-  border-radius: 50%;
-  float: left;
-  margin-right: 24px;
-}
-
-.user-details p {
-  font-size: 11px;
-  bottom: 10px;
-  
-}
-.user-details {
-  bottom: 10px;
-  float: left;
-  vertical-align: bottom;
-}
-
-.user-details h4 {
-  font-size: 18px;
-}
-
-
-.title small {
-  font-size: 10px;
-  color: #888;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-
-
-.card {
-    box-shadow: 0 4px 15px 1 rgba(0, 0, 0, 0.1);
-    max-width: fit-content;
-    margin: auto;
-    text-align: center;
-    overflow: hidden;
-    background-color:#eeeeee;
-    position: relative;
-  }
 .pbtn {
-    border: none;
-    outline: 0;
-    display: inline-block;
-    padding: 8px;
-    color: white;
-    background-color: #000;
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-    font-size: 10px;
-  }
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 10px;
+}
 .pbtn:hover, h4:hover, .material-icons:hover, .dbtn:hover, .sbtn:hover, .nbtn:hover {
-    opacity: 0.7;
+  opacity: 0.7;
 }
 .pheading{
-    color: #000;
-    font-size: 28px;
+  color: #000;
+  font-size: 28px;
 }
 
+
+  
 /*MANAGE EVENTS MODAL */
 .mbtn {
   border: none;

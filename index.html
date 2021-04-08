@@ -170,7 +170,7 @@
             <h4>Sign up</h4><br />
             <form id="signup-form">
                 <div class="input-field">
-                    <i class="material-icons prefix grey-text" style="font-size: 25px; top: 15px;">create</i>
+                    <i class="material-icons prefix black-text" style="font-size: 25px; top: 15px;">create</i>
                     <input type="text" id="signup-name" required />
                     <label for="signup-name">Name</label>
                 </div>
@@ -185,7 +185,7 @@
                     <label for="signup-password">Choose password</label>
                 </div>
                 <div class="input-field">
-                    <i class="material-icons prefix grey-text" style="font-size: 25px; top: 15px;">person</i>
+                    <i class="material-icons prefix pink-text" style="font-size: 25px; top: 15px;">male</i>
                     <input type="text" id="signup-gender" required />
                     <label for="signup-gender">Gender</label>
                 </div>
@@ -226,10 +226,12 @@
 
     <!-- ACCOUNT MODAL -->
     <div id="modal-account" class="modal card" style="max-width: fit-content;">
-        <div class="modal-content  center-align">
+        <div class="modal-content  center-align" >
             
-            <div class="account-details"></div>
-            <button class="pbtn" style="width: 100px; height: 40px;" onclick="editProfile()" id="btn-edit-profile"><i class="material-icons">edit</i></button></br>
+            <div class="account-details" style="width:300px; height: 450px;">
+
+            </div><br><br><br>
+            <button class="sbtn" style="width: 100px; height: 30px;" onclick="editProfile()" id="btn-edit-profile">Edit</button></br>
         </div>
     </div>
     <!-- EDIT PROFILE -->
@@ -238,6 +240,7 @@
             
         </form>
     </div>
+   
 
 
 
