@@ -61,7 +61,36 @@ const setupUI = (user) => {
     loggedOutLinks.forEach((item) => (item.style.display = "block"));
   }
 };
-//Event reponses
+//forgot password
+document.getElementById("forgotPasssword").addEventListener("click", (e)=>{
+document.getElementById("login-form").innerHTML = `
+<p>Password recovery</p>
+<div class="input-field">
+                    <i class="material-icons prefix blue-text" style="font-size: 25px; top: 15px;">email</i>
+                    <input type="email" id="reset-email" style="color: black;" required />
+                    <label for="reset-email">Email address</label>
+                    <button class="sbtn" id="reset-pass">Reset</button>
+                   
+                    <p>Make sure you refresh the page after submitting reset password request</p>
+                </div>`;
+         
+        document.getElementById("reset-pass").addEventListener("click",(e)=> {
+          var email = document.getElementById("reset-email").value;
+          var auth = firebase.auth();
+          auth.sendPasswordResetEmail(email).then(()=> {
+            Swal.fire("Good job!", "Password recovery mail sent! check your mail", "success");
+            const modal = document.querySelector("#modal-login");
+            M.Modal.getInstance(modal).close();
+            
+          }).catch(error =>{
+            console.error(error);
+          })
+          
+        })      
+        
+});
+
+//Event responses
 function eventResponses(id) {
   var eventID = id;
   db.collection("eventResponses")
@@ -269,6 +298,7 @@ createForm.addEventListener("submit", (e) => {
       payment: payment,
     })
     .then(() => {
+      Swal.fire("Good job!", "Event Created", "success");
       const modal = document.querySelector("#modal-create");
       M.Modal.getInstance(modal).close();
       createForm.reset();
