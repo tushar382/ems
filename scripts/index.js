@@ -21,7 +21,7 @@ const setupUI = (user) => {
         <div class="card-container" style="width:300px; height: 450px;">
          <div class="upper-container">
             <div class="image-container">
-               <img src="${doc.data().Link}" />
+               <img src="${doc.data().Link}" alt="Profile img" />
             </div>
          </div>
          <div class="lower-container">
