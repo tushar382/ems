@@ -32,10 +32,10 @@ const setupUI = (user) => {
             <div>
                <p>
                <i class="material-icons prefix blue-text" style=" float: left;">email</i><p class="text1">${user.email}</p>
-               <i class="material-icons prefix purple-text" style=" float: left;">call</i><p class="text1">${doc.data().phoneno}</p>
-               <i class="material-icons prefix pink-text" style=" float: left;">male</i><p class="text1"  >${doc.data().gender}</p>
+               <i class="material-icons prefix blue-text" style=" float: left;">call</i><p class="text1">${doc.data().phoneno}</p>
+               <i class="material-icons prefix blue-text" style=" float: left;">male</i><p class="text1"  >${doc.data().gender}</p>
                <p class="text1"><b>Work Experience</b></p>
-               <i class="material-icons prefix brown-text" style="float: center;">work</i><p class="text1" style="text-align:center;">${doc.data().workExperience}</p>
+               <i class="material-icons prefix blue-text" style="float: center;">work</i><p class="text1" style="text-align:center;">${doc.data().workExperience}</p>
                 
                  
                  
@@ -328,11 +328,11 @@ function myevents() {
             snapshot.forEach(function (eventValue) {
               document.getElementById("my-eventslist").innerHTML += `<li>
             <div class="collapsible-header grey lighten-4">${eventValue.data().title}</div>
-            <div class="collapsible-body white"><p>Description</p><i class="material-icons prefix yellow-text">description</i>${eventValue.data().description}</br><hr>
-            <p>Eligibility</p><i class="material-icons prefix brown-text" style=" float: left;">bookmark</i>${eventValue.data().eligibility}</br><hr>
-            <p>Schedule</p><i class="material-icons prefix red-text" style=" float: left;">schedule</i>${eventValue.data().schedule}</br><hr>
+            <div class="collapsible-body white"><p>Description</p><i class="material-icons prefix blue-text">description</i>${eventValue.data().description}</br><hr>
+            <p>Eligibility</p><i class="material-icons prefix blue-text" style=" float: left;">bookmark</i>${eventValue.data().eligibility}</br><hr>
+            <p>Schedule</p><i class="material-icons prefix blue-text" style=" float: left;">schedule</i>${eventValue.data().schedule}</br><hr>
             <p>Location</p><i class="material-icons prefix blue-text" style=" float: left;">location_on</i>${eventValue.data().location}</br><hr>
-            <p>Payment</p> <i class="material-icons prefix green-text" style=" float: left;">attach_money</i>${eventValue.data().payment}</br>
+            <p>Payment</p> <i class="material-icons prefix blue-text" style=" float: left;">attach_money</i>${eventValue.data().payment}</br>
             </div>
           </li><br></hr> `;
             });
