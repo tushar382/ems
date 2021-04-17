@@ -10,22 +10,22 @@ function editProfile(){
     <form id="editprofileform">
                 <p>Personal Information</p><hr>
                 <div class="input-field">
-                    <i class="material-icons prefix purple-text">call</i>
+                    <i class="material-icons prefix blue-text">call</i>
                     <input class="text" type="number" id="update_phno">
                     <label for="update_phno" >Update phone number</label>
                 </div>
                 <div class="input-field">
-                <i class="material-icons prefix yellow-text">accessibility</i>
+                <i class="material-icons prefix blue-text">accessibility</i>
                     <input type="number" id="update_height">
                     <label class="text" for="update_height">Update height in Cm</label>
                 </div>
                 <div class="input-field">
-                <i class="material-icons prefix brown-text">person</i>
+                <i class="material-icons prefix blue-text">person</i>
                     <input type="number" id="update_age">
                     <label class="text" for="update_age">Update age</label>
                 </div>
                 <div class="input-field">
-                    <i class="material-icons prefix green-text">view_headline</i>
+                    <i class="material-icons prefix blue-text">view_headline</i>
                     <input class="text" type="text" id="update_bio">
                     <label for="update_bio">Update bio</label>
                 </div>
@@ -41,12 +41,12 @@ function editProfile(){
                     <label for="update_workexp">Work experience</label>
                 </div>
                 <div class="input-field">
-                <i class="material-icons prefix orange-text">psychology</i>
+                <i class="material-icons prefix blue-text">psychology</i>
                 <input class="text" type="text" id="update_skills">
                 <label for="update_skills">Skills</label>
                 </div>
                 <div>
-                <i class="material-icons prefix black-text">face</i>
+                <i class="material-icons prefix blue-text">face</i>
                 <img src="" id="profile_pic" alt="Profile Image" style="border:2px solid black; width="200px"; height="200px"; ">
                 <button class="nbtn" style="width: 50px; " id="select">Select</button>
                 </div>
