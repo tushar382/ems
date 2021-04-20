@@ -260,25 +260,7 @@ document.getElementById("contactus").addEventListener("click", (e) => {
     document.getElementById("div-contactus").innerHTML = "";
   });
 });
-// faq
-document.getElementById("faq").addEventListener("click", (e) => {
-  e.preventDefault();
-  document.getElementById("div-aboutus").innerHTML = "";
-  document.getElementById("div-contactus").innerHTML = "";
-  document.getElementById("div-faq").innerHTML = `<div class="row">
-  <center>
-  <h4 id="close_contactus">FAQ</h4>
-  <a href="#" class="brand-logo" class="responsive" >
-  <img src="logo.svg" class="responsive" style="width: 150px; " align="middle" >
-  </a>
-  </center>
-  <div>
-  <ul>
-  <li>
-  </ul>
-  </div>
-  `;
-});
+
 //create new event
 const createForm = document.getElementById("create-form");
 createForm.addEventListener("submit", (e) => {
